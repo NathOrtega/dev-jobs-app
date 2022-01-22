@@ -15,18 +15,7 @@ const StyledSection = styled.div`
   }
 `
 
-const StyledColumnsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  @media screen and (min-width:768px) {
-    flex-direction: row;
-    justify-content: space-around;
-  }
-`
-
-const StyledSectionTitle = styled.h1`
+const StyledSectionTitle = styled.h2`
   font-size: 28px;
   font-weight: lighter;
   color: var(--VeryDarkBlue);
@@ -39,12 +28,25 @@ const StyledSectionTitle = styled.h1`
   }
 `
 
-export default function TwoColumnsSection({ numeration, title, children }) {
+const StyledColumnsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @media screen and (min-width:768px) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+`
+
+export default function TwoColumnsSection({ numeration, title, introInfo,children }) {
   return (
     <StyledSection>
       <StyledSectionTitle>
         {numeration && <span>{numeration}</span>} {title}
       </StyledSectionTitle>
+      {introInfo && introInfo}
       <StyledColumnsContainer>
         {children}
       </StyledColumnsContainer>

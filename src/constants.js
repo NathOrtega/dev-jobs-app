@@ -1,3 +1,5 @@
+const sampleText = "Jived fox nymph grabs quick waltz"
+
 export const primaryColors = [
   {
     title: "Violet",
@@ -35,14 +37,14 @@ export const secondaryColors = [
     hex: "#FFFFFF",
     rbg: "rgb(255, 255, 255)",
     hsl: "hsl(0°, 0%, 100%)",
-    isLight: true,
+    isLight: false,
   },
   {
     title: "Light Grey",
     hex: "#F4F6F8",
     rbg: "rgb(244, 246, 248)",
     hsl: "hsl(210°, 22%, 96%)",
-    isLight: false,
+    isLight: true,
   },
   {
     title: "Grey",
@@ -59,3 +61,37 @@ export const secondaryColors = [
     isLight: false,
   },
 ]
+
+export const titlesStyles = [
+  {
+    type: "H1", 
+    fontSize: "28px", 
+    lineHeight: "34px", 
+    sampleText: sampleText, 
+  },
+  {
+    type: "H2", 
+    fontSize: "24px", 
+    lineHeight: "29px", 
+    sampleText: sampleText, 
+  },
+  {
+    type: "H3", 
+    fontSize: "20px", 
+    lineHeight: "24px", 
+    sampleText: sampleText, 
+  },
+  {
+    type: "H4", 
+    fontSize: "14px", 
+    lineHeight: "18px", 
+    sampleText: sampleText, 
+  },
+]
+
+export const paragraphStyles = {
+  type: "P", 
+  fontSize: "16px", 
+  lineHeight: "26px", 
+  sampleText: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. ", 
+}
