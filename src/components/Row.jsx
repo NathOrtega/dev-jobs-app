@@ -7,19 +7,19 @@ const StyledRow = styled.div`
   width: 300px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
 
   @media screen and (min-width:768px) {
-    width: fit-content;
+    width: 350px;
   }
 `
 
 export default function Row({ title, children }) {
   return (
     <StyledColumn>
-      {title && <StyledHeading3>{title}</StyledHeading3>}
+      {title && <StyledHeading3 style={{marginBottom: "20px"}}>{title}</StyledHeading3>}
       <StyledRow>
         {children}
       </StyledRow>
