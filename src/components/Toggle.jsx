@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const StyledToggle = styled.div`
@@ -9,7 +9,7 @@ const StyledToggle = styled.div`
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 0;
 `
 
 const StyledSwitch = styled.label`
@@ -20,7 +20,7 @@ const StyledSwitch = styled.label`
   cursor: pointer;
   position: relative;
   border-radius: 12px;
-  background-color: var(--White);
+  background-color: var(--Light100);
 
   input {
     width: 0;
@@ -33,7 +33,7 @@ const StyledSwitch = styled.label`
     height: 14px;
     border-radius: 50%;
     position: absolute;
-    background-color: var(--Violet);
+    background-color: var(--Primary);
     transition: margin 0.4s linear;
   }
 
@@ -43,7 +43,7 @@ const StyledSwitch = styled.label`
 
   &:hover {
     span {
-      background-color: var(--LightViolet);
+      background-color: var(--Secondary);
     }
   }
 `
@@ -66,7 +66,7 @@ export default function Toggle({ onClick, leftImageSrc, rightImageSrc, rightImag
         <input type="checkbox" checked={isToggled} onChange={onToggled}/>
         <span></span>
       </StyledSwitch>
-      <img src={leftImageSrc} style={leftImageStyle} />
+      <img src={leftImageSrc} style={leftImageStyle}/>
     </StyledToggle>
   )
 }

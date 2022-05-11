@@ -1,19 +1,20 @@
 import React from "react";
-import { StyledHeader } from "./StyledHeader";
-import { StyledLogo } from "./StyledLogo"
-import ColorSampler from "./ColorSampler";
-import TwoColumnsSection from "./TwoColumnsSection";
-import Column from "./Column";
+import { StyledHeader } from "../components/StyledHeader";
+import { StyledLogo } from "../components/StyledLogo"
+import ColorSampler from "../components/ColorSampler";
+import TwoColumnsSection from "../components/TwoColumnsSection";
+import Column from "../components/Column";
 import { primaryColors, secondaryColors, titlesStyles, paragraphStyles } from "../constants"
-import TypographySampler, { FontFamilySampler } from "./TypographySampler";
-import { StyledHeading3 } from "./Typography";
-import Row from "./Row";
-import Button from "./Button";
-import Input from "./Input";
+import TypographySampler, { FontFamilySampler } from "../components/TypographySampler";
+import { StyledHeading3 } from "../components/Typography";
+import Row from "../components/Row";
+import Button from "../components/Button";
+import Input from "../components/Input";
 import { FaSearch } from "react-icons/fa"
 import styled from "styled-components";
-import Toggle from "./Toggle"
-import Checkbox from "./Checkbox";
+import Toggle from "../components/Toggle"
+import Checkbox from "../components/Checkbox";
+import { useTheme } from "../contexts/ThemeContext"
 
 const StyledColoredDiv = styled.div`
     width: 141px;
@@ -28,6 +29,11 @@ const StyledColoredDiv = styled.div`
 
 export default function DesignSystem() {
   const { type, fontSize, lineHeight, sampleText } = paragraphStyles
+  const { setThemeName } = useTheme()
+
+  const handleOnToggle = (e) => {
+    setThemeName(e === true ? "dark" : "light")
+  }
 
   return (
     <React.Fragment>
@@ -35,19 +41,19 @@ export default function DesignSystem() {
         <StyledLogo href="/"> 
           devjobs
         </StyledLogo>
-        <StyledHeading3 color="var(--White)"> 
+        <StyledHeading3 color="var(--Light100)"> 
           Design System
         </StyledHeading3>
       </StyledHeader>
       <TwoColumnsSection numeration="1" title="Colors">
         <Column title="Primary Colors">
-          {primaryColors.map(({ title, hex, rgb, hsl, isLight }) => {
-            return (<ColorSampler title={title} hex={hex} rgb={rgb} hsl={hsl} isLight={isLight} key={hex}/>)
+          {primaryColors.map(({ title, hex, rgb, hsl, cssColorConst }) => {
+            return (<ColorSampler title={title} hex={hex} rgb={rgb} hsl={hsl} cssColorConst={cssColorConst} key={hex}/>)
           })}
         </Column>
         <Column title="Secondary Colors">
-          {secondaryColors.map(({ title, hex, rgb, hsl, isLight }) => {
-            return <ColorSampler title={title} hex={hex} rgb={rgb} hsl={hsl} isLight={isLight} key={hex}/>
+          {secondaryColors.map(({ title, hex, rgb, hsl, cssColorConst }) => {
+            return <ColorSampler title={title} hex={hex} rgb={rgb} hsl={hsl} cssColorConst={cssColorConst} key={hex}/>
           })}
         </Column>
       </TwoColumnsSection>
@@ -63,7 +69,7 @@ export default function DesignSystem() {
       </TwoColumnsSection>
       <TwoColumnsSection numeration="3" title="Buttons & Form Elements">
         <Row>
-          < Input 
+          <Input 
             icon={FaSearch} 
             placeholder="Enter desired job..." 
             id="testInput" 
@@ -84,16 +90,16 @@ export default function DesignSystem() {
           >
             Secondary
           </Button>
-          <StyledColoredDiv bgColor="var(--Violet)">
+          <StyledColoredDiv bgColor="var(--Primary)">
             < Toggle 
-              onClick={(e) => console.log(`Is toggled: ${e}`)} 
+              onClick={(e) => handleOnToggle(e)} 
               rightImageSrc="./resources/sun.svg" 
               rightImageStyle={{width: "20px", height: "20px"}}
               leftImageSrc="./resources/moon.svg"
               leftImageStyle={{width: "14px", height: "14px"}}
             />
           </StyledColoredDiv>
-          <Checkbox label="Checkbox" onChange={(e) => {console.log(`Is active: ${e}`)}}/>
+          <Checkbox label="Checkbox" onChange={(e) => {console.log(`Is checkbox active: ${e}`)}}/>
         </Row>
       </TwoColumnsSection>
     </React.Fragment>

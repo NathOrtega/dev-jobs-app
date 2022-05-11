@@ -9,16 +9,29 @@ const StyledButton = styled.button`
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  background-color: ${(props) => props.variant === "primary" ? "var(--Violet)" : "#EEEFFC"};
-  color: ${(props) => props.variant === "primary" ? "var(--White)" : "var(--Violet)"};
+  background-color: ${({ variant, theme }) => 
+    variant === "primary" 
+    ? theme.button.variants.primary.backgroundColor
+    : theme.button.variants.secondary.backgroundColor
+  };
+  color: ${({ variant, theme }) => 
+    variant === "primary" 
+    ? theme.button.variants.primary.color
+    : theme.button.variants.secondary.color
+  };
 
   &:hover {
-    background-color: ${(props) => props.variant === "primary" ? "var(--LightViolet)" : "#C5C9F4"};
+    background-color: ${({ variant, theme }) => 
+      variant === "primary" 
+      ? theme.button.variants.primary.hover.backgroundColor
+      : theme.button.variants.secondary.hover.backgroundColor
+    };
   }
 `
 
 export default function Button({ variant, style, children, onClick }) {
   const buttonVariant = variant.toLowerCase() 
+
   const handleOnClick = () => {
     onClick()
   }

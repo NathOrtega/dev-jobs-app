@@ -11,18 +11,18 @@ const StyledInput = styled.div`
   padding: 28px 32px;
   border-radius: 6px;
   border: none;
-  background-color: var(--White);
+  background-color: ${({ theme }) => theme.input.backgroundColor};
 
   input {
     width: 100%;
-    padding-left: 16px;
     outline: none;
     border: none;
     font-size: 16px;
-    color: var(--VeryDarkBlue);
+    background-color: transparent;
+    color: ${({ theme }) => theme.input.color};
 
     &::placeholder {
-      color: var(--DarkGrey);
+      color: ${({ theme }) => theme.input.placeholder.color};
     }
   }
 `
@@ -36,10 +36,10 @@ export default function Input({ icon: Icon, placeholder, width, id, style, onCha
     <StyledInput width={width} style={style}>
       { Icon && 
         <label htmlFor={id}>
-          <Icon style={{fontSize: "24px", color: "var(--Violet)"}}/>
+          <Icon style={{fontSize: "24px", color: "var(--Primary)"}}/>
         </label>
       }
-      <input type="text" id={id} placeholder={placeholder} onChange={handleOnChange}/>
+      <input type="text" id={id} placeholder={placeholder} onChange={handleOnChange} style={{paddingLeft: Icon ? "16px" : "0"}}/>
     </StyledInput>
   )
 }

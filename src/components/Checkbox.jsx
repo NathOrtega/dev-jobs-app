@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTheme } from "../contexts/ThemeContext";
 
 const StyledCheckbox = styled.div`
   width: 24px;
@@ -10,7 +11,7 @@ const StyledCheckbox = styled.div`
   align-items: center;
   border-radius: 3px;
   margin: 10px 16px 10px 10px;
-  background-color: ${props => props.isActive ? "var(--Violet)" : "#E7E8E9"};
+  background-color: ${props => props.isActive ? "var(--Primary)" : "#E7E8E9"};
   cursor: pointer;
 
   &:hover {
@@ -40,8 +41,9 @@ const StyledLabel = styled.label`
   } 
 `
 
-export default function Checkbox({ id, label, onChange }) {
+export default function Checkbox({ id, label, onChange, style }) {
   const [ isActive, setIsActive ] = React.useState(false)
+  const { theme } = useTheme()
 
   const handleOnChange = () => {
     setIsActive((prevState) => prevState === true ? false : true)
@@ -49,13 +51,14 @@ export default function Checkbox({ id, label, onChange }) {
 
   React.useEffect(() => {
     onChange(isActive)
-  })
+  }, [isActive])
 
   return (
     < StyledLabel
-      color="var(--VeryDarkBlue)"
+      color={theme.checkbox.color}
       isActive={isActive}
       htmlFor={id}
+      style={style}
     >
       < input 
         id={id} 

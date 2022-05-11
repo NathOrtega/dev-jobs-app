@@ -1,0 +1,69 @@
+import React from "react";
+import { StyledHeader } from "../components/StyledHeader";
+import { StyledLogo } from "../components/StyledLogo"
+import Toggle from "../components/Toggle";
+import { useTheme } from "../contexts/ThemeContext";
+import FiltersBar from "../components/FiltersBar";
+import styled from "styled-components"
+import Card from "../components/Card"
+import fetchData from "../api";
+import Button from "../components/Button";
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 82px auto 49px;
+  max-width: 1110px;
+`
+
+export default function Home() {
+  const { setThemeName } = useTheme()
+  const [ jobOffers, setJobOffers ] = React.useState([])
+
+  React.useEffect(() => {
+    fetchData("/data.json")
+      .then((data) => setJobOffers(data))
+      .catch((error) => console.log(error))
+  }, [])
+
+  const handleOnToggle = (e) => {
+    setThemeName(e === true ? "dark" : "light")
+  }
+
+  return (
+    <React.Fragment>
+      <StyledHeader>
+        <StyledLogo href="/"> 
+          devjobs
+        </StyledLogo>
+        < Toggle 
+            onClick={(e) => handleOnToggle(e)} 
+            rightImageSrc="./resources/sun.svg" 
+            rightImageStyle={{width: "20px", height: "20px"}}
+            leftImageSrc="./resources/moon.svg"
+            leftImageStyle={{width: "14px", height: "14px"}}
+        />
+        <FiltersBar/>
+      </StyledHeader>
+      <StyledContainer>
+        {jobOffers.map(({ id, logo, postedAt, contract, position, company, location} ) => {
+          return (
+            <Card 
+              key={id} 
+              logo={logo} 
+              postedAt={postedAt} 
+              contract={contract} 
+              position={position} 
+              company={company} 
+              location={location} 
+            />
+          )
+        })}
+        <Button variant="primary">Load More</Button>
+      </StyledContainer>
+    </React.Fragment>
+  )
+}

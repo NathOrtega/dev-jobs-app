@@ -18,12 +18,12 @@ const StyledSection = styled.div`
 const StyledSectionTitle = styled.h2`
   font-size: 28px;
   font-weight: lighter;
-  color: var(--VeryDarkBlue);
+  color: ${({theme}) => theme.text.colorH2};
   margin-bottom: 40px;
   
   span {
     font-weight: bold;
-    color: var(--Violet);
+    color: var(--Primary);
     margin-right: 20px;
   }
 `

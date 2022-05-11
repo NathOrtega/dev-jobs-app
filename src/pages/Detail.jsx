@@ -1,6 +1,6 @@
 import React from "react";
-import { StyledHeader } from "./StyledHeader";
-import { StyledLogo } from "./StyledLogo"
+import { StyledHeader } from "../components/StyledHeader";
+import { StyledLogo } from "../components/StyledLogo"
 
 export default function Detail() {
   return (
@@ -9,7 +9,7 @@ export default function Detail() {
         <StyledLogo href="/"> 
           devjobs
         </StyledLogo>
-        <h1 style={{ color: "var(--White)", fontSize: "20px" }}> 
+        <h1 style={{ color: "var(--Light100)", fontSize: "20px" }}> 
           Component
         </h1>
       </StyledHeader>

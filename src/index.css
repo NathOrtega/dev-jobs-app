@@ -1,12 +1,12 @@
 :root {
-  --Violet: #5964E0;
-  --LightViolet: #939BF4;
-  --VeryDarkBlue: #19202D;
-  --Midnight: #121721;
-  --White: #FFFFFF;
-  --LightGrey: #F4F6F8;
-  --Grey: #9DAEC2;
-  --DarkGrey: #6E8098;
+  --Primary: #5964E0;
+  --Secondary: #939BF4;
+  --Dark100: #19202D;
+  --Dark200: #121721;
+  --Light100: #FFFFFF;
+  --Light200: #F4F6F8;
+  --Neutral100: #9DAEC2;
+  --Neutral200: #6E8098;
 }
 
 * {
@@ -18,6 +18,12 @@
 
 html, body, #root {
   width: 100%;
-  height: 100%;
-  background-color: var(--LightGrey);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
 }
