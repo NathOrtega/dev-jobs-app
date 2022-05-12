@@ -37,7 +37,9 @@ const buttonStyles = {
   margin: "0 24px 24px",
 }
 
-export default function Modal({ isOpen, onClose }) {
+export default function Modal({ isOpen, onClose, onSearch }) {
+  const [ locationInput, setLocationInput ] = React.useState("")
+
   React.useEffect(() => {
     if (isOpen) {
       document.body.classList.add("overflow-hidden")
@@ -46,15 +48,20 @@ export default function Modal({ isOpen, onClose }) {
     }
   }, [isOpen])
 
+  const handleOnClick = () => {
+
+  }
+
   return ReactDOM.createPortal(
     <div className={isOpen ? "" : "hidden"}>
-      <StyledOverlay onClick={onClose}/>
+      <StyledOverlay onClick={handleOnClick}/>
       <StyledModel>
         <Input 
           icon={MdLocationPin} 
           width="100%"
           placeholder="Filter by location…" 
           style={inputStyles}
+          onChange={(e) => setLocationInput(e)}
         />
         <Checkbox 
           label="Full Time Only" 
@@ -62,7 +69,7 @@ export default function Modal({ isOpen, onClose }) {
           onChange={() => {console.log("Full Time")}} 
         />
         <Button 
-          onClick={onClose}
+          onClick={() => onSearch(locationInput)}
           variant="primary"
           style={buttonStyles}
         >

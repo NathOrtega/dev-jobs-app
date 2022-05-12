@@ -8,6 +8,7 @@ import styled from "styled-components"
 import Card from "../components/Card"
 import fetchData from "../api";
 import Button from "../components/Button";
+import { StyledHeading3 } from "../components/Typography";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -20,12 +21,16 @@ const StyledContainer = styled.div`
 `
 
 export default function Home() {
-  const { setThemeName } = useTheme()
+  const { setThemeName, theme } = useTheme()
   const [ jobOffers, setJobOffers ] = React.useState([])
+  const [ filteredOffers, setFilteredOffers ] = React.useState([])
 
   React.useEffect(() => {
     fetchData("/data.json")
-      .then((data) => setJobOffers(data))
+      .then((data) => {
+        setJobOffers(data)
+        setFilteredOffers(data)
+      })
       .catch((error) => console.log(error))
   }, [])
 
@@ -46,24 +51,31 @@ export default function Home() {
             leftImageSrc="./resources/moon.svg"
             leftImageStyle={{width: "14px", height: "14px"}}
         />
-        <FiltersBar/>
+        <FiltersBar jobOffers={jobOffers} onSearch={(e) => setFilteredOffers(e)}/>
       </StyledHeader>
-      <StyledContainer>
-        {jobOffers.map(({ id, logo, postedAt, contract, position, company, location} ) => {
-          return (
-            <Card 
-              key={id} 
-              logo={logo} 
-              postedAt={postedAt} 
-              contract={contract} 
-              position={position} 
-              company={company} 
-              location={location} 
-            />
-          )
-        })}
-        <Button variant="primary">Load More</Button>
-      </StyledContainer>
+      {filteredOffers.length 
+        ? <StyledContainer>
+            {filteredOffers.map(({ id, logo, postedAt, contract, position, company, location} ) => {
+              return (
+                <Card 
+                  key={id} 
+                  logo={logo} 
+                  postedAt={postedAt} 
+                  contract={contract} 
+                  position={position} 
+                  company={company} 
+                  location={location} 
+                />
+            )})}
+            <Button variant="primary">Load More</Button>
+          </StyledContainer>
+        :
+        <StyledContainer>
+          <StyledHeading3 color={theme.text.colorH3}>
+            No matching results found
+          </StyledHeading3>
+        </StyledContainer>
+      }
     </React.Fragment>
   )
 }

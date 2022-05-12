@@ -34,21 +34,36 @@ const StyledFilterButton = styled.button`
   background-color: transparent;
 `
 
-export default function FiltersBar() {
+export default function FiltersBar({ jobOffers, onSearch }) {
   const [ isOpen, setIsOpen ] = React.useState(false)
+  const [ inputValue, setInputValue ] = React.useState("")
 
   const handleOnClick = () => {
     setIsOpen((prevState) => prevState === false ? true : false)
   }
 
+  const handleOnInputChange = (newValue) => {
+    setInputValue(newValue)
+  }
+
+  const onSearchClick = (locationValue) => {
+    const filteredOffers = jobOffers.filter((offer) => 
+      offer.position.toLowerCase().includes(inputValue.toLowerCase())
+    ).filter((offer) => 
+      offer.location.toLowerCase().includes(locationValue.toLowerCase())
+    )
+    onSearch(filteredOffers)
+    setIsOpen(false)
+  }
+
   return (
     <StyledFilterBar>
-      < Input 
+      <Input 
         placeholder="Filter by title..." 
         id="titleFilter" 
         width="50%"
         style={{padding: 0}}
-        onChange={(e) => {console.log(e)}}
+        onChange={(e) => {handleOnInputChange(e)}}
       /> 
       <div>
         <StyledFilterButton onClick={handleOnClick}>
@@ -57,11 +72,17 @@ export default function FiltersBar() {
         < Button
           variant="Primary" 
           style={{width: "48px", height: "48px", borderRadius: "5px"}}
+          onClick={onSearchClick}
         >
           <FaSearch style={{fontSize: "20px"}}/>
         </Button>
       </div>
-      <Modal isOpen={isOpen} onClose={handleOnClick}></Modal>
+      <Modal 
+        isOpen={isOpen} 
+        onClose={handleOnClick} 
+        onSearch={(e) => onSearchClick(e)}
+        titleFilterValue={inputValue}
+      />
     </StyledFilterBar>
   )
 }

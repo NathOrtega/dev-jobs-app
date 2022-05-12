@@ -50,7 +50,7 @@ export default function Checkbox({ id, label, onChange, style }) {
   }
 
   React.useEffect(() => {
-    onChange(isActive)
+    onChange({isActive})
   }, [isActive])
 
   return (

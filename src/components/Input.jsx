@@ -27,7 +27,7 @@ const StyledInput = styled.div`
   }
 `
 
-export default function Input({ icon: Icon, placeholder, width, id, style, onChange}) {
+export default function Input({ icon: Icon, placeholder, width, id, style, onChange, value }) {
   const handleOnChange = (e) => {
     onChange(e.target.value)
   }
@@ -39,7 +39,14 @@ export default function Input({ icon: Icon, placeholder, width, id, style, onCha
           <Icon style={{fontSize: "24px", color: "var(--Primary)"}}/>
         </label>
       }
-      <input type="text" id={id} placeholder={placeholder} onChange={handleOnChange} style={{paddingLeft: Icon ? "16px" : "0"}}/>
+      <input 
+        type="text" 
+        id={id} 
+        value={value}
+        placeholder={placeholder} 
+        onChange={handleOnChange} 
+        style={{paddingLeft: Icon ? "16px" : "0"}}
+      />
     </StyledInput>
   )
 }
