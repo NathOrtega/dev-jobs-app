@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { up } from "styled-breakpoints"
 
 export const StyledHeader = styled.div`
   width: 100%;
@@ -13,14 +14,14 @@ export const StyledHeader = styled.div`
   background-size: cover;
   position: relative;
 
-  @media screen and (min-width:768px) {
+  ${up("md")} {
     height: 160px;
     padding: 42px 40px;
     border-bottom-left-radius: 100px;
     background-image: url(/resources/headerBgTablet.svg);
   }
 
-  @media screen and (min-width:1024px) {
+  ${up("xl")} {
     height: 162px;
     padding: 45px 165px;
     background-image: url(/resources/headerBgDesktop.svg);

@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { up } from "styled-breakpoints"
 
 const StyledSection = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px;
 
-  @media screen and (min-width:768px) {
+  ${up("md")} {
     padding: 30px 40px;
   }
 
-  @media screen and (min-width:1024px) {
+  ${up("xl")} {
     padding: 30px 165px;
   }
 `
@@ -34,7 +35,7 @@ const StyledColumnsContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
 
-  @media screen and (min-width:768px) {
+  ${up("md")} {
     flex-direction: row;
     justify-content: space-around;
   }

@@ -15,6 +15,7 @@ import styled from "styled-components";
 import Toggle from "../components/Toggle"
 import Checkbox from "../components/Checkbox";
 import { useTheme } from "../contexts/ThemeContext"
+import { up } from "styled-breakpoints"
 
 const StyledColoredDiv = styled.div`
     width: 141px;
@@ -25,6 +26,13 @@ const StyledColoredDiv = styled.div`
     align-items: center;
     justify-content: center;
     margin: 4px;
+`
+
+const StyledBox = styled.div`
+  ${up("md")} {
+    width: 300px;
+    height: 132px;
+  }
 `
 
 export default function DesignSystem() {
@@ -69,38 +77,56 @@ export default function DesignSystem() {
       </TwoColumnsSection>
       <TwoColumnsSection numeration="3" title="Buttons & Form Elements">
         <Row>
-          <Input 
-            icon={FaSearch} 
-            placeholder="Enter desired job..." 
-            id="testInput" 
-            style={{margin: "4px"}}
-            onChange={(e) => {console.log(e)}}
-          /> 
-          < Button 
-            variant="Primary" 
-            style={{margin: "4px"}}
-            onClick={() => {alert(`Primary button clicked`)}}
-          >
-            Primary
-          </Button>
-          < Button 
-            variant="Secondary" 
-            style={{margin: "4px"}}
-            onClick={() => {alert(`Secondary button clicked`)}}
-          >
-            Secondary
-          </Button>
-          <StyledColoredDiv bgColor="var(--Primary)">
-            < Toggle 
-              onClick={(e) => handleOnToggle(e)} 
-              rightImageSrc="./resources/sun.svg" 
-              rightImageStyle={{width: "20px", height: "20px"}}
-              leftImageSrc="./resources/moon.svg"
-              leftImageStyle={{width: "14px", height: "14px"}}
-            />
-          </StyledColoredDiv>
-          <Checkbox label="Checkbox" onChange={(e) => {console.log(`Is checkbox active: ${e}`)}}/>
+          <Row title="Input">
+            <StyledBox>
+              <Input 
+                icon={FaSearch} 
+                placeholder="Enter desired job..." 
+                id="testInput" 
+                style={{margin: "4px"}}
+                onChange={(e) => {console.log(e)}}
+              /> 
+            </StyledBox>
+          </Row>
+          <Row title="Buttons">
+            <StyledBox>
+              <Button 
+                variant="Primary" 
+                style={{margin: "4px"}}
+                onClick={() => {alert(`Primary button clicked`)}}
+              >
+                Primary
+              </Button>
+              <Button 
+                variant="Secondary" 
+                style={{margin: "4px"}}
+                onClick={() => {alert(`Secondary button clicked`)}}
+              >
+                Secondary
+              </Button>
+            </StyledBox>
+          </Row>
         </Row>
+        <Column>
+          <Row title="Toggle">
+            <StyledBox>
+              <StyledColoredDiv bgColor="var(--Primary)">
+                < Toggle 
+                  onClick={(e) => handleOnToggle(e)} 
+                  rightImageSrc="./resources/sun.svg" 
+                  rightImageStyle={{width: "20px", height: "20px"}}
+                  leftImageSrc="./resources/moon.svg"
+                  leftImageStyle={{width: "14px", height: "14px"}}
+                />
+              </StyledColoredDiv>
+            </StyledBox>
+          </Row>
+          <Row title="Checkbox">
+            <StyledBox>
+              <Checkbox label="Test1" onChange={(e) => {console.log(`Is checkbox active: ${e}`)}}/>
+            </StyledBox>
+          </Row>
+        </Column>
       </TwoColumnsSection>
     </React.Fragment>
   )

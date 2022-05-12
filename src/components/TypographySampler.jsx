@@ -2,6 +2,7 @@ import React from "react";
 import { StyledHeading1, StyledHeading2, StyledHeading3, StyledHeading4, StyledParagraph } from "./Typography";
 import styled from "styled-components";
 import { useTheme } from "../contexts/ThemeContext";
+import { up } from "styled-breakpoints"
 
 const StyledFontFamilySampler = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ const StyledFontFamilySampler = styled.div`
   align-items: flex-start;
   margin-bottom: 40px;
 
-  @media screen and (min-width:768px) {
+  ${up("md")} {
     flex-direction: row;
   }
 `

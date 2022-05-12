@@ -48,7 +48,7 @@ export default function Modal({ isOpen, onClose }) {
 
   return ReactDOM.createPortal(
     <div className={isOpen ? "" : "hidden"}>
-      <StyledOverlay/>
+      <StyledOverlay onClick={onClose}/>
       <StyledModel>
         <Input 
           icon={MdLocationPin} 
@@ -58,7 +58,7 @@ export default function Modal({ isOpen, onClose }) {
         />
         <Checkbox 
           label="Full Time Only" 
-          style={{margin: "0 24px 12px"}}
+          style={{width: "fit-content", margin: "0 24px 12px"}}
           onChange={() => {console.log("Full Time")}} 
         />
         <Button 
