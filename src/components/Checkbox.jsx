@@ -41,34 +41,25 @@ const StyledLabel = styled.label`
   } 
 `
 
-export default function Checkbox({ id, label, onChange, style }) {
-  const [ isActive, setIsActive ] = React.useState(false)
+export default function Checkbox({ id, label, isSelected, onChange, style }) {
   const { theme } = useTheme()
-
-  const handleOnChange = () => {
-    setIsActive((prevState) => prevState === true ? false : true)
-  }
-
-  React.useEffect(() => {
-    onChange({isActive})
-  }, [isActive])
 
   return (
     < StyledLabel
       color={theme.checkbox.color}
-      isActive={isActive}
+      isActive={isSelected}
       htmlFor={id}
       style={style}
     >
-      < input 
+      <input 
         id={id} 
         type="checkbox" 
-        checked={isActive} 
-        onChange={handleOnChange}
+        checked={isSelected} 
+        onChange={onChange}
       />
-      <StyledCheckbox isActive={isActive}>
+      <StyledCheckbox isActive={isSelected}>
         { 
-          isActive 
+          isSelected 
           ? <img src="./resources/checkMark.svg" alt="Check Icon" />
           : null
         }

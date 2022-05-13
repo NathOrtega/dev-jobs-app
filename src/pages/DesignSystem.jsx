@@ -38,10 +38,23 @@ const StyledBox = styled.div`
 export default function DesignSystem() {
   const { type, fontSize, lineHeight, sampleText } = paragraphStyles
   const { setThemeName } = useTheme()
+  const [ ischecked, setIsChecked ] = React.useState(false)
 
   const handleOnToggle = (e) => {
     setThemeName(e === true ? "dark" : "light")
   }
+
+  const handleOnCheckboxChange = () => {
+    setIsChecked((prevState) => prevState === true ? false : true)
+  }
+
+  React.useEffect(() => {
+    if(ischecked) {
+      console.log("Checked!")
+    } else {
+      console.log("Unchecked!")
+    }
+  }, [ischecked])
 
   return (
     <React.Fragment>
@@ -123,7 +136,7 @@ export default function DesignSystem() {
           </Row>
           <Row title="Checkbox">
             <StyledBox>
-              <Checkbox label="Test1" onChange={(e) => {console.log(`Is checkbox active: ${e}`)}}/>
+              <Checkbox label="Test1" isSelected={ischecked} onChange={handleOnCheckboxChange}/>
             </StyledBox>
           </Row>
         </Column>

@@ -46,11 +46,13 @@ export default function FiltersBar({ jobOffers, onSearch }) {
     setInputValue(newValue)
   }
 
-  const onSearchClick = (locationValue) => {
+  const onSearchClick = ({locationInput, isFulltime}) => {
     const filteredOffers = jobOffers.filter((offer) => 
       offer.position.toLowerCase().includes(inputValue.toLowerCase())
     ).filter((offer) => 
-      offer.location.toLowerCase().includes(locationValue.toLowerCase())
+      locationInput ? offer.location.toLowerCase().includes(locationInput.toLowerCase()) : true
+    ).filter((offer) => 
+      isFulltime ? offer.contract === "Full Time" : true
     )
     onSearch(filteredOffers)
     setIsOpen(false)
@@ -72,7 +74,7 @@ export default function FiltersBar({ jobOffers, onSearch }) {
         < Button
           variant="Primary" 
           style={{width: "48px", height: "48px", borderRadius: "5px"}}
-          onClick={onSearchClick}
+          onClick={() => onSearchClick({})}
         >
           <FaSearch style={{fontSize: "20px"}}/>
         </Button>
@@ -80,8 +82,7 @@ export default function FiltersBar({ jobOffers, onSearch }) {
       <Modal 
         isOpen={isOpen} 
         onClose={handleOnClick} 
-        onSearch={(e) => onSearchClick(e)}
-        titleFilterValue={inputValue}
+        onSearch={onSearchClick}
       />
     </StyledFilterBar>
   )

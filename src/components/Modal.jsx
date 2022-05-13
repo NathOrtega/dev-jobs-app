@@ -39,7 +39,7 @@ const buttonStyles = {
 
 export default function Modal({ isOpen, onClose, onSearch }) {
   const [ locationInput, setLocationInput ] = React.useState("")
-  const [ isFulltimeOnly, setIsFulltimeOnly ] = React.useState(false)
+  const [ isFulltime, setIsFulltime ] = React.useState(false)
 
   React.useEffect(() => {
     if (isOpen) {
@@ -49,8 +49,15 @@ export default function Modal({ isOpen, onClose, onSearch }) {
     }
   }, [isOpen])
 
+  const handleOnCheckboxChange = () => {
+    setIsFulltime((prevValue) => prevValue === false ? true : false)
+  }
+
   const handleOnClick = () => {
+    setLocationInput("")
+    setIsFulltime(false)
     onClose()
+    onSearch({locationInput, isFulltime})
   }
 
   return ReactDOM.createPortal(
@@ -62,15 +69,17 @@ export default function Modal({ isOpen, onClose, onSearch }) {
           width="100%"
           placeholder="Filter by location…" 
           style={inputStyles}
+          value={locationInput}
           onChange={(e) => setLocationInput(e)}
         />
         <Checkbox 
           label="Full Time Only" 
           style={{width: "fit-content", margin: "0 24px 12px"}}
-          onChange={(isActive) => setIsFulltimeOnly(isActive)} 
+          isSelected={isFulltime}
+          onChange={handleOnCheckboxChange} 
         />
         <Button 
-          onClick={() => onSearch(locationInput)}
+          onClick={() => onSearch({locationInput, isFulltime})}
           variant="primary"
           style={buttonStyles}
         >
