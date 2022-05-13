@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { StyledHeading3 } from "./Typography";
-import { useTheme } from "../contexts/ThemeContext";
+import { useTheme } from "../../contexts/ThemeContext";
 
 export const StyledColumn = styled.div`
   display: flex;

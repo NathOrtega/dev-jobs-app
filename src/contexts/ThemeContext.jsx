@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components"
-import { lightTheme, darkTheme } from "../components/Theme";
+import { lightTheme, darkTheme } from "../Theme";
 
 export const ThemeContext = React.createContext()
 

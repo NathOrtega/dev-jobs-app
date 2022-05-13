@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { useTheme } from "../contexts/ThemeContext";
-import { StyledHeading3, StyledParagraph, StyledHeading4 } from "./Typography";
+import { StyledHeading3, StyledParagraph, StyledHeading4 } from "./designSystem/Typography";
 import { Link } from "react-router-dom";
+import { up } from "styled-breakpoints"
 
-const StyledDiv = styled.div`
+const Container = styled.div`
   width: 327px;
   height: 228px;
   border-radius: 6px;
@@ -17,6 +18,11 @@ const StyledDiv = styled.div`
   margin: 0 15px 50px;
   position: relative;
   cursor: pointer;
+
+  ${up("xl")} {
+    width: 345px;
+    margin: 0 28px 50px;
+  }
 
   .logo {
     width: 50px;
@@ -42,7 +48,7 @@ export default function Card({ logo, postedAt, contract, position, company, loca
   const { theme } = useTheme()
 
   return (
-    <StyledDiv logoURL={logo}>
+    <Container logoURL={logo}>
       <Link to={"/detail"} style={{textDecoration: "none"}}>
         <div className="logo"/>
         <div>
@@ -52,6 +58,6 @@ export default function Card({ logo, postedAt, contract, position, company, loca
         </div>
         <StyledHeading4 color="var(--Primary)">{location}</StyledHeading4>
       </Link>
-    </StyledDiv>
+    </Container>
   )
 }

@@ -1,13 +1,13 @@
 import React from "react";
 import { StyledHeader } from "../components/StyledHeader";
 import { StyledLogo } from "../components/StyledLogo"
-import ColorSampler from "../components/ColorSampler";
-import TwoColumnsSection from "../components/TwoColumnsSection";
-import Column from "../components/Column";
+import ColorSampler from "../components/designSystem/ColorSampler";
+import TwoColumnsSection from "../components/designSystem/TwoColumnsSection";
+import Column from "../components/designSystem/Column";
 import { primaryColors, secondaryColors, titlesStyles, paragraphStyles } from "../constants"
-import TypographySampler, { FontFamilySampler } from "../components/TypographySampler";
-import { StyledHeading3 } from "../components/Typography";
-import Row from "../components/Row";
+import TypographySampler, { FontFamilySampler } from "../components/designSystem/TypographySampler";
+import { StyledHeading3 } from "../components/designSystem/Typography";
+import Row from "../components/designSystem/Row";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import { FaSearch } from "react-icons/fa"

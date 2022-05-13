@@ -8,7 +8,7 @@ import styled from "styled-components"
 import Card from "../components/Card"
 import fetchData from "../api";
 import Button from "../components/Button";
-import { StyledHeading3 } from "../components/Typography";
+import { StyledHeading3 } from "../components/designSystem/Typography";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const StyledContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin: 82px auto 49px;
-  max-width: 1110px;
+  max-width: 1250px;
 `
 
 export default function Home() {

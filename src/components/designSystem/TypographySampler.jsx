@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledHeading1, StyledHeading2, StyledHeading3, StyledHeading4, StyledParagraph } from "./Typography";
 import styled from "styled-components";
-import { useTheme } from "../contexts/ThemeContext";
+import { useTheme } from "../../contexts/ThemeContext";
 import { up } from "styled-breakpoints"
 
 const StyledFontFamilySampler = styled.div`

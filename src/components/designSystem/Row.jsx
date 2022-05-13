@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { StyledColumn } from "./Column";
 import { StyledHeading3 } from "./Typography";
-import { useTheme } from "../contexts/ThemeContext";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const StyledRow = styled.div`
   width: 300px;
