@@ -16,6 +16,7 @@ import Toggle from "../components/Toggle"
 import Checkbox from "../components/Checkbox";
 import { useTheme } from "../contexts/ThemeContext"
 import { up } from "styled-breakpoints"
+import { darkTheme } from "../Theme";
 
 const StyledColoredDiv = styled.div`
     width: 141px;
@@ -62,7 +63,7 @@ export default function DesignSystem() {
         <StyledLogo href="/"> 
           devjobs
         </StyledLogo>
-        <StyledHeading3 color="var(--Light100)"> 
+        <StyledHeading3 color={darkTheme.text.colorH3}> 
           Design System
         </StyledHeading3>
       </StyledHeader>

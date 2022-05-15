@@ -22,10 +22,10 @@ export const lightTheme = {
         },
       },
       secondary: {
-        backgroundColor: "#EEEFFC",
+        backgroundColor: "var(--LightBg100)",
         color: "var(--Primary)",
         hover: {
-          backgroundColor: "#C5C9F4",
+          backgroundColor: "var(--LightBg200)",
         },
       }
     }
@@ -54,7 +54,7 @@ export const darkTheme = {
     colorParagraph: "var(--Neutral100)",
   },
   card: {
-    backgroundColor: "#1A202D",
+    backgroundColor: "var(--DarkBg100)",
   },
   button: {
     variants: {
@@ -66,16 +66,16 @@ export const darkTheme = {
         },
       },
       secondary: {
-        backgroundColor: "#303642",
+        backgroundColor: "var(--DarkBg200)",
         color: "var(--Light100)",
         hover: {
-          backgroundColor: "#6B6E77",
+          backgroundColor: "var(--DarkBg300)",
         },
       }
     }
   },
   input: {
-    backgroundColor: "#1A202D",
+    backgroundColor: "var(--DarkBg100)",
     color: "var(--Light100)",
     placeholder: {
       color: "var(--Neutral100)",

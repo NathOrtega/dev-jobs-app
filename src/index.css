@@ -1,12 +1,21 @@
 :root {
   --Primary: #5964E0;
   --Secondary: #939BF4;
+  --SecondaryLight: #D6D8F7;
   --Dark100: #19202D;
   --Dark200: #121721;
+  --Dark300: #000000;
   --Light100: #FFFFFF;
   --Light200: #F4F6F8;
+  --Light300: #E7E8E9;
   --Neutral100: #9DAEC2;
   --Neutral200: #6E8098;
+  --Neutral300: #D6D6D6;
+  --DarkBg100: #1A202D;
+  --DarkBg200: #303642;
+  --DarkBg300: #6B6E77;
+  --LightBg100: #EEEFFC;
+  --LightBg200: #C5C9F4;
 }
 
 * {

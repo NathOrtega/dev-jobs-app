@@ -9,7 +9,7 @@ import Button from "./Button"
 const StyledOverlay = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: #000000;
+  background-color: var(--Dark300);
   opacity: 0.5;
   position: absolute;
   top: 0;

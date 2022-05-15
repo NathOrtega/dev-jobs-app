@@ -11,11 +11,11 @@ const StyledCheckbox = styled.div`
   align-items: center;
   border-radius: 3px;
   margin: 10px 16px 10px 10px;
-  background-color: ${props => props.isActive ? "var(--Primary)" : "#E7E8E9"};
+  background-color: ${props => props.isActive ? "var(--Primary)" : "var(--Light300)"};
   cursor: pointer;
 
   &:hover {
-    background-color: ${props => !props.isActive && "#D6D8F7"};
+    background-color: ${props => !props.isActive && "var(--SecondaryLight)"};
   }
 `
 
@@ -37,7 +37,7 @@ const StyledLabel = styled.label`
   }
 
   &:hover input ~ div {
-    background-color: ${props => !props.isActive && "#D6D8F7"};
+    background-color: ${props => !props.isActive && "var(--SecondaryLight)"};
   } 
 `
 

@@ -24,6 +24,17 @@ export default function Home() {
   const { setThemeName, theme } = useTheme()
   const [ jobOffers, setJobOffers ] = React.useState([])
   const [ filteredOffers, setFilteredOffers ] = React.useState([])
+  const [ visibleJobOffers, setVisibleJobOffers ] = React.useState(6)
+
+  const loadMoreJobOffers = () => {
+    setVisibleJobOffers(prevValue => {
+      if ((prevValue + 6) >= filteredOffers.length){
+        return filteredOffers.length
+      } else {
+        return prevValue + 6
+      }
+    })
+  }
 
   React.useEffect(() => {
     fetchData("/data.json")
@@ -55,7 +66,7 @@ export default function Home() {
       </StyledHeader>
       {filteredOffers.length 
         ? <StyledContainer>
-            {filteredOffers.map(({ id, logo, postedAt, contract, position, company, location} ) => {
+            {filteredOffers.slice(0, visibleJobOffers).map(({ id, logo, postedAt, contract, position, company, location} ) => {
               return (
                 <Card 
                   key={id} 
@@ -67,7 +78,13 @@ export default function Home() {
                   location={location} 
                 />
             )})}
-            <Button variant="primary">Load More</Button>
+            <Button 
+              variant="primary" 
+              onClick={loadMoreJobOffers}
+              style={visibleJobOffers >= filteredOffers.length ? {display: "none"} : null}
+            >
+              Load More
+            </Button>
           </StyledContainer>
         :
         <StyledContainer>

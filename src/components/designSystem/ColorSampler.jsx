@@ -13,7 +13,7 @@ const StyledColorSampler = styled.div`
 const StyledColorContainer = styled.div`
   width: 80px;
   height: 80px;
-  border: ${({theme}) => theme === "light" ? "1px solid #D6D6D6" : "1px solid var(--Neutral200)"};
+  border: ${({theme}) => theme === "light" ? "1px solid var(--Neutral300)" : "1px solid var(--Neutral200)"};
   border-radius: 28px;
   margin-right: 32px;
   background-color: ${(props) => props.cssColorConst};
