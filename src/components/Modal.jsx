@@ -48,7 +48,7 @@ export default function Modal({ isOpen, onClose, onSearch }) {
       document.body.classList.remove("overflow-hidden")
     }
   }, [isOpen])
-
+  
   const handleOnCheckboxChange = () => {
     setIsFulltime((prevValue) => prevValue === false ? true : false)
   }
@@ -57,7 +57,7 @@ export default function Modal({ isOpen, onClose, onSearch }) {
     setLocationInput("")
     setIsFulltime(false)
     onClose()
-    onSearch({locationInput, isFulltime})
+    onSearch({locationInput: "", isFulltime: false})
   }
 
   return ReactDOM.createPortal(
