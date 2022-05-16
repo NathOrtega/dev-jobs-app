@@ -21,6 +21,10 @@ export const lightTheme = {
           backgroundColor: "var(--Secondary)",
         },
       },
+      primaryDisabled: {
+        color: "var(--Light100)",
+        backgroundColor: "var(--Neutral300)",
+      },
       secondary: {
         backgroundColor: "var(--LightBg100)",
         color: "var(--Primary)",
@@ -64,6 +68,10 @@ export const darkTheme = {
         hover: {
           backgroundColor: "var(--Secondary)",
         },
+      },
+      primaryDisabled: {
+        color: "var(--Light100)",
+        backgroundColor: "var(--Neutral100)",
       },
       secondary: {
         backgroundColor: "var(--DarkBg200)",

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Input from "./Input";
 import Button from "./Button";
 import { FaSearch, FaFilter } from "react-icons/fa"
-import Modal from "./Modal";
+import FiltersModal from "./FiltersModal";
 
 const StyledFilterBar = styled.div`
   height: 80px;
@@ -36,26 +36,37 @@ const StyledFilterButton = styled.button`
 
 export default function FiltersBar({ jobOffers, onSearch }) {
   const [ isOpen, setIsOpen ] = React.useState(false)
-  const [ inputValue, setInputValue ] = React.useState("")
+  const [ position, setPosition ] = React.useState("")
+  const [ location, setLocation ] = React.useState("")
+  const [ isFulltime, setIsFulltime ] = React.useState(false)
+
+  React.useEffect(() => {
+    onSearchClick()
+  }, [location, isFulltime])
 
   const handleOnClick = () => {
     setIsOpen((prevState) => prevState === false ? true : false)
   }
 
-  const handleOnInputChange = (newValue) => {
-    setInputValue(newValue)
+  const handleOnPositionInputChange = (newValue) => {
+    setPosition(newValue)
   }
 
-  const onSearchClick = ({locationInput, isFulltime}) => {
+  const handleModalOnSearch = ({location, isFulltime}) => {
+    setLocation(location)
+    setIsFulltime(isFulltime)
+    setIsOpen(false)
+  } 
+
+  const onSearchClick = () => {
     const filteredOffers = jobOffers.filter((offer) => 
-      offer.position.toLowerCase().includes(inputValue.toLowerCase())
+      offer.position.toLowerCase().includes(position.toLowerCase())
     ).filter((offer) => 
-      locationInput ? offer.location.toLowerCase().includes(locationInput.toLowerCase()) : true
+      location ? offer.location.toLowerCase().includes(location.toLowerCase()) : true
     ).filter((offer) => 
       isFulltime ? offer.contract === "Full Time" : true
     )
     onSearch(filteredOffers)
-    setIsOpen(false)
   }
 
   return (
@@ -65,7 +76,7 @@ export default function FiltersBar({ jobOffers, onSearch }) {
         id="titleFilter" 
         width="50%"
         style={{padding: 0}}
-        onChange={(e) => {handleOnInputChange(e)}}
+        onChange={handleOnPositionInputChange}
       /> 
       <div>
         <StyledFilterButton onClick={handleOnClick}>
@@ -74,15 +85,17 @@ export default function FiltersBar({ jobOffers, onSearch }) {
         < Button
           variant="Primary" 
           style={{width: "48px", height: "48px", borderRadius: "5px"}}
-          onClick={() => onSearchClick({})}
+          onClick={onSearchClick}
         >
           <FaSearch style={{fontSize: "20px"}}/>
         </Button>
       </div>
-      <Modal 
+      <FiltersModal 
         isOpen={isOpen} 
         onClose={handleOnClick} 
-        onSearch={onSearchClick}
+        onSearch={handleModalOnSearch} 
+        initialLocation={location}
+        initialIsFulltime={isFulltime}
       />
     </StyledFilterBar>
   )
