@@ -4,6 +4,7 @@ import Input from "./Input";
 import Button from "./Button";
 import { FaSearch, FaFilter } from "react-icons/fa"
 import FiltersModal from "./FiltersModal";
+import { up } from "styled-breakpoints"
 
 const StyledFilterBar = styled.div`
   height: 80px;
@@ -32,6 +33,19 @@ const StyledFilterButton = styled.button`
   cursor: pointer;
   color: var(--Neutral200);
   background-color: transparent;
+`
+const SearchButton = styled(Button)`
+  width: 48px; 
+  height: 48px; 
+  border-radius: 5px;
+
+  ${up("md")}{
+    width: 80px; 
+  }
+
+  ${up("xl")}{
+    width: 123px; 
+  }
 `
 
 export default function FiltersBar({ jobOffers, onSearch }) {
@@ -82,13 +96,12 @@ export default function FiltersBar({ jobOffers, onSearch }) {
         <StyledFilterButton onClick={handleOnClick}>
           <FaFilter />
         </StyledFilterButton>
-        < Button
+        <SearchButton
           variant="Primary" 
-          style={{width: "48px", height: "48px", borderRadius: "5px"}}
           onClick={onSearchClick}
         >
           <FaSearch style={{fontSize: "20px"}}/>
-        </Button>
+        </SearchButton>
       </div>
       <FiltersModal 
         isOpen={isOpen} 

@@ -47,7 +47,7 @@ const StyledButton = styled.button`
   }
 `
 
-export default function Button({ variant, style, children, onClick, disabled=false }) {
+export default function Button({ variant, style, children, onClick, disabled=false, className }) {
   const buttonVariant = variant.toLowerCase() 
 
   const handleOnClick = () => {
@@ -55,7 +55,13 @@ export default function Button({ variant, style, children, onClick, disabled=fal
   }
 
   return (
-    <StyledButton variant={buttonVariant} style={style} onClick={handleOnClick} disabled={disabled}>
+    <StyledButton 
+      variant={buttonVariant} 
+      style={style} 
+      onClick={handleOnClick} 
+      disabled={disabled} 
+      className={className}
+    >
       {children}
     </StyledButton>
   )

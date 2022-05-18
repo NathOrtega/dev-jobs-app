@@ -37,6 +37,9 @@ export default function FiltersModal({isOpen, onClose, onSearch , initialLocatio
     onClose()
   }
 
+  const isDisabled = ((location === initialLocation) && (isFulltime === initialIsFulltime))
+
+
   return(
     <Modal 
       isOpen={isOpen} 
@@ -58,8 +61,8 @@ export default function FiltersModal({isOpen, onClose, onSearch , initialLocatio
       />
       <Button 
         onClick={() => onSearch({location, isFulltime})}
-        disabled={location === "" && isFulltime === false}
-        variant={location === "" && isFulltime === false ? "primaryDisabled" : "primary"}
+        disabled={isDisabled}
+        variant={isDisabled ? "primaryDisabled" : "primary"}
         style={onSearchButtonStyles}
       >
         Search
