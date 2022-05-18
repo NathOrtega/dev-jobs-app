@@ -16,7 +16,8 @@ const StyledModal = styled.div`
   background-color: ${({ theme }) => theme.card.backgroundColor};
   position: absolute;
   top: 35%;
-  left: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   border-radius: 6px;
 `
 

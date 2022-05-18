@@ -22,6 +22,13 @@ const onSearchButtonStyles = {
 export default function FiltersModal({isOpen, onClose, onSearch , initialLocation, initialIsFulltime}) {
   const [ location, setLocation ] = React.useState(initialLocation)
   const [ isFulltime, setIsFulltime ] = React.useState(initialIsFulltime)
+
+  React.useEffect(() => {
+    if (isOpen) {
+      setLocation(initialLocation)
+      setIsFulltime(initialIsFulltime)
+    }
+  }, [isOpen])
   
   const handleOnInputChange = (newValue) => {
     setLocation(newValue)
@@ -54,6 +61,7 @@ export default function FiltersModal({isOpen, onClose, onSearch , initialLocatio
         onChange={handleOnInputChange}
       />
       <Checkbox 
+        id="modalFulltime"
         label="Full Time Only" 
         style={{width: "fit-content", margin: "0 24px 12px"}}
         isSelected={isFulltime}
