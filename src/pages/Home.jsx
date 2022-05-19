@@ -69,6 +69,7 @@ export default function Home() {
             {filteredOffers.slice(0, visibleJobOffers).map(({ id, logo, postedAt, contract, position, company, location} ) => {
               return (
                 <Card 
+                  id={id}
                   key={id} 
                   logo={logo} 
                   postedAt={postedAt} 

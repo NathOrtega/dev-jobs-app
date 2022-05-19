@@ -44,12 +44,12 @@ const Container = styled.div`
   }
 `
 
-export default function Card({ logo, postedAt, contract, position, company, location }){
+export default function Card({ logo, postedAt, contract, position, company, location, id }){
   const { theme } = useTheme()
 
   return (
     <Container logoURL={logo}>
-      <Link to={"/detail"} style={{textDecoration: "none"}}>
+      <Link to={`/detail/${id}`} style={{textDecoration: "none"}}>
         <div className="logo"/>
         <div>
           <StyledParagraph color={theme.text.colorParagraph}>{postedAt} • {contract}</StyledParagraph>
