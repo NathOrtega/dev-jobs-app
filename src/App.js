@@ -11,7 +11,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/detail" element={<Detail />} />
+          <Route path="/detail/:offerId" element={<Detail />} />
           <Route path="/design-system" element={<DesignSystem />} />
         </Routes>
       </Router>
