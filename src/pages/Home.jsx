@@ -2,7 +2,7 @@ import React from "react";
 import { useTheme } from "../contexts/ThemeContext";
 import FiltersBar from "../components/FiltersBar";
 import styled from "styled-components"
-import Card from "../components/Card"
+import OfferCard from "../components/OfferCard"
 import fetchData from "../api";
 import Button from "../components/Button";
 import { StyledHeading3 } from "../components/designSystem/Typography";
@@ -15,6 +15,13 @@ const StyledContainer = styled.div`
   align-items: center;
   margin: 82px auto 49px;
   max-width: 1250px;
+`
+
+const ButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export default function Home() {
@@ -50,7 +57,7 @@ export default function Home() {
           ? <StyledContainer>
               {filteredOffers.slice(0, visibleJobOffers).map(({ id, logo, postedAt, contract, position, company, location} ) => {
                 return (
-                  <Card 
+                  <OfferCard 
                     id={id}
                     key={id} 
                     logo={logo} 
@@ -61,13 +68,15 @@ export default function Home() {
                     location={location} 
                   />
               )})}
-              <Button 
-                variant="primary" 
-                onClick={loadMoreJobOffers}
-                style={visibleJobOffers >= filteredOffers.length ? {display: "none"} : null}
-              >
-                Load More
-              </Button>
+              <ButtonContainer>
+                <Button 
+                  variant="primary" 
+                  onClick={loadMoreJobOffers}
+                  style={visibleJobOffers >= filteredOffers.length ? {display: "none"} : null}
+                >
+                  Load More
+                </Button>
+              </ButtonContainer>
             </StyledContainer>
           :
           <StyledContainer>

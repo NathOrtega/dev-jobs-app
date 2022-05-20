@@ -55,9 +55,9 @@ export default function Header({logo}) {
           :
           <Toggle 
             onClick={(e) => handleOnToggle(e)} 
-            rightImageSrc="./resources/sun.svg" 
+            rightImageSrc="../resources/sun.svg" 
             rightImageStyle={{width: "20px", height: "20px"}}
-            leftImageSrc="./resources/moon.svg"
+            leftImageSrc="../resources/moon.svg"
             leftImageStyle={{width: "14px", height: "14px"}}
           />
         }
