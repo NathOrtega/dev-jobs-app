@@ -21,10 +21,14 @@ const StyledFilterBar = styled.div`
   margin: 0 auto;
   padding: 0 16px;
   position: absolute;
-  bottom: -40px;
+  top: 95px;
   left: 0;
   right: 0;
   background-color: ${({theme}) => theme.input.backgroundColor};
+
+  ${up("md")}{
+    top: 120px; 
+  }
 `
 
 const StyledBox = styled.div`

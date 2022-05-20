@@ -4,11 +4,13 @@ import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import DesignSystem from "./pages/DesignSystem";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import Header from "./components/Header";
 
 export default function App() {
   return (
     <ThemeProvider>
       <Router>
+        <Header logo="Devjobs"/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/detail/:offerId" element={<Detail />} />
@@ -18,5 +20,3 @@ export default function App() {
     </ThemeProvider>
   );
 }
-
-//const [ isModalOpen, setIsModalOpen ] = React.useState(false)

@@ -1,12 +1,9 @@
 import React from "react";
-import { StyledHeader } from "../components/StyledHeader";
-import { StyledLogo } from "../components/StyledLogo"
 import ColorSampler from "../components/designSystem/ColorSampler";
 import TwoColumnsSection from "../components/designSystem/TwoColumnsSection";
 import Column from "../components/designSystem/Column";
 import { primaryColors, secondaryColors, titlesStyles, paragraphStyles } from "../constants"
 import TypographySampler, { FontFamilySampler } from "../components/designSystem/TypographySampler";
-import { StyledHeading3 } from "../components/designSystem/Typography";
 import Row from "../components/designSystem/Row";
 import Button from "../components/Button";
 import Input from "../components/Input";
@@ -16,7 +13,6 @@ import Toggle from "../components/Toggle"
 import Checkbox from "../components/Checkbox";
 import { useTheme } from "../contexts/ThemeContext"
 import { up } from "styled-breakpoints"
-import { darkTheme } from "../Theme";
 
 const StyledColoredDiv = styled.div`
     width: 141px;
@@ -59,14 +55,6 @@ export default function DesignSystem() {
 
   return (
     <React.Fragment>
-      <StyledHeader>
-        <StyledLogo href="/"> 
-          devjobs
-        </StyledLogo>
-        <StyledHeading3 color={darkTheme.text.colorH3}> 
-          Design System
-        </StyledHeading3>
-      </StyledHeader>
       <TwoColumnsSection numeration="1" title="Colors">
         <Column title="Primary Colors">
           {primaryColors.map(({ title, hex, rgb, hsl, cssColorConst }) => {
