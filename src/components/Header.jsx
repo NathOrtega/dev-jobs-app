@@ -44,7 +44,7 @@ export default function Header({logo}) {
 
   return (
     <StyledHeader>
-        <StyledLogo href="/"> 
+        <StyledLogo to="/"> 
           {logo}
         </StyledLogo>
         { location.pathname === "/design-system" 

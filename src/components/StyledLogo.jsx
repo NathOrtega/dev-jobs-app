@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom"
 
-export const StyledLogo = styled.a`
+export const StyledLogo = styled(Link)`
   text-decoration: none;
   color: var(--Light100);
   font-weight: bold;

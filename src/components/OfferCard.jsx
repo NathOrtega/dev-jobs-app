@@ -48,8 +48,8 @@ export default function OfferCard({ logo, postedAt, contract, position, company,
   const { theme } = useTheme()
 
   return (
-    <Container logoURL={logo}>
-      <Link to={`/detail/${id}`} style={{textDecoration: "none"}}>
+    <Link to={`/detail/${id}`} style={{textDecoration: "none"}}>
+      <Container logoURL={logo}>
         <div className="logo"/>
         <div>
           <StyledParagraph color={theme.text.colorParagraph}>{postedAt} • {contract}</StyledParagraph>
@@ -57,7 +57,7 @@ export default function OfferCard({ logo, postedAt, contract, position, company,
           <StyledParagraph color={theme.text.colorParagraph}>{company}</StyledParagraph>
         </div>
         <StyledHeading4 color="var(--Primary)">{location}</StyledHeading4>
-      </Link>
-    </Container>
+      </Container>
+    </Link>
   )
 }
