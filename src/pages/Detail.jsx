@@ -8,6 +8,8 @@ import { useTheme } from "../contexts/ThemeContext"
 import Button from "../components/Button";
 import DetailsFragment from "../components/DetailsFragment";
 import { BsDot } from "react-icons/bs"
+import { up, down } from "styled-breakpoints"
+import { useBreakpoint } from "styled-breakpoints/react-styled";
 
 const StyledLogo = styled.div`
   width: 50px;
@@ -21,6 +23,15 @@ const StyledLogo = styled.div`
   top: -25px;
   left: 50%;
   transform: translateX(-50%);
+
+  ${up("md")} {
+    width: 140px;
+    height: 140px;
+    border-radius: 6px 0 0 6px;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+  }
 `
 
 const StyledAnchor = styled.a`
@@ -29,24 +40,71 @@ const StyledAnchor = styled.a`
 
 const StyledHeaderCard = styled(Card)`
   position: absolute;
-  top: 14%;
+  top: 7em;
   left: 50%;
   transform: translateX(-50%);
+
+  ${up("md")} {
+    width: 90%;
+    height: 140px;
+    top: 7.5em;
+  }
+
+  ${up("xl")} {
+    width: 730px;
+  }
+`
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
   padding: 32px;
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+
+  ${up("md")}{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 40px 40px 180px;
+  }
 `
 
 const StyledContentCard = styled(Card)`
   height: fit-content;
   padding: 40px 25px;
-  margin: 55% auto 64px;
+  margin: 210px auto 64px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+
+  ${up("md")}{
+    width: 90%;
+    margin: 8em auto 64px;
+
+    .offerBasicInfo {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 50px;
+
+      div {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  }
+
+  ${up("xl")} {
+    width: 730px;
+  }
 `
 
 const StyledFooterCard = styled(Card)`
@@ -55,12 +113,42 @@ const StyledFooterCard = styled(Card)`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  div {
+    div {
+      display: none;
+    }
+  }
+
+  ${up("md")}{
+    padding: 25px 40px;
+    justify-content: space-between;
+
+    div {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+
+      div {
+        display: block;
+      }
+    }
+  }
+
+  ${up("xl")} {
+    div {
+      width: 730px;
+      margin: 0 auto;
+    }
+  }
 `
 
 export default function Detail() {
   const params = useParams()
   const [ offer, setOffer ] = React.useState({})
   const { theme } = useTheme()
+
+  const isMobile = useBreakpoint(down("md"));
 
   React.useEffect(() => {
     fetchOffer(params.offerId)
@@ -79,32 +167,48 @@ export default function Detail() {
   return (
     <React.Fragment>
       <StyledHeaderCard>
-        <StyledLogo logoURL={offer.logo}/>
-        <StyledHeading3 color={theme.text.colorH3} style={{marginBottom: "8px"}}>{offer.company}</StyledHeading3>
-        <StyledParagraph color={theme.text.colorParagraph}>{offer.company?.toLowerCase()}.com</StyledParagraph>
-        <StyledAnchor href={offer.website} target="_blank" rel="noreferrer">
-          <Button variant="secondary" style={{margin: "24px 0 0"}} onClick={redirect}>
-            Company Site
-          </Button>
-        </StyledAnchor>
+        <Wrapper>
+          <StyledLogo logoURL={offer.logo}/>
+          <div>
+            <StyledHeading3 color={theme.text.colorH3} style={{marginBottom: "8px"}}>{offer.company}</StyledHeading3>
+            <StyledParagraph color={theme.text.colorParagraph}>{offer.company?.toLowerCase()}.com</StyledParagraph>
+          </div>
+          <StyledAnchor href={offer.website} target="_blank" rel="noreferrer">
+            <Button 
+              variant="secondary" 
+              onClick={redirect}
+              style={isMobile ? {margin: "24px 0 0"} : {margin: "0"}}
+            >
+              Company Site
+            </Button>
+          </StyledAnchor>
+        </Wrapper>
       </StyledHeaderCard>
       <StyledContentCard>
-        <div style={{width: "100%", marginBottom: "50px"}}>
-          <StyledParagraph color={theme.text.colorParagraph} style={{marginBottom: "8px"}}>
-            {offer.postedAt} • {offer.contract}
-          </StyledParagraph>
-          <StyledHeading3 color={theme.text.colorH3} style={{marginBottom: "8px"}}>
-            {offer.position}
-          </StyledHeading3>
-          <StyledHeading4 color="var(--Primary)">
-            {offer.location}
-          </StyledHeading4>
+        <div className="offerBasicInfo">
+          <div 
+            style={isMobile ? {width: "100%", marginBottom: "50px"} : {width: "100%", margin: "0"}}
+          >
+            <StyledParagraph color={theme.text.colorParagraph} style={{marginBottom: "8px"}}>
+              {offer.postedAt} • {offer.contract}
+            </StyledParagraph>
+            <StyledHeading3 color={theme.text.colorH3} style={{marginBottom: "8px"}}>
+              {offer.position}
+            </StyledHeading3>
+            <StyledHeading4 color="var(--Primary)">
+              {offer.location}
+            </StyledHeading4>
+          </div>
+          <StyledAnchor href={offer.apply} target="_blank" rel="noreferrer">
+            <Button 
+              variant="primary" 
+              onClick={redirect}
+              style={isMobile ? {width: "279px", marginBottom: "32px"} : {width: "279px", margin: "0"}}
+            >
+              Apply Now
+            </Button>
+          </StyledAnchor>
         </div>
-        <StyledAnchor href={offer.apply} target="_blank" rel="noreferrer">
-          <Button variant="primary" style={{width: "279px", marginBottom: "32px"}} onClick={redirect}>
-            Apply Now
-          </Button>
-        </StyledAnchor>
         <StyledParagraph color={theme.text.colorParagraph} style={{marginBottom: "66px"}}>
           {offer.description}
         </StyledParagraph>
@@ -122,11 +226,21 @@ export default function Detail() {
         />
       </StyledContentCard>
       <StyledFooterCard>
-        <StyledAnchor href={offer.apply} target="_blank" rel="noreferrer">
-          <Button variant="primary" style={{width: "279px"}} onClick={redirect}>
-            Apply Now
-          </Button>
-        </StyledAnchor>
+        <div>
+          <div>
+          <StyledHeading3 color={theme.text.colorH3}>
+            {offer.position}
+          </StyledHeading3>
+          <StyledParagraph color={theme.text.colorParagraph}>
+            {offer.company}
+          </StyledParagraph>
+          </div>
+          <StyledAnchor href={offer.apply} target="_blank" rel="noreferrer">
+            <Button variant="primary" style={{width: "279px"}} onClick={redirect}>
+              Apply Now
+            </Button>
+          </StyledAnchor>
+        </div>
       </StyledFooterCard>
     </React.Fragment>
   )

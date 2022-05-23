@@ -10,7 +10,7 @@ import { useBreakpoint } from "styled-breakpoints/react-styled";
 import Checkbox from "./Checkbox";
 import { useTheme } from "../contexts/ThemeContext";
 
-const StyledFilterBar = styled.div`
+const StyledFilterBar = styled.form`
   height: 80px;
   width: 80%;
   display: flex;
@@ -136,7 +136,10 @@ export default function FiltersBar({ jobOffers, onSearch }) {
   const isTablet = useBreakpoint(between("md", "xl"))
 
   return (
-    <StyledFilterBar>
+    <StyledFilterBar onSubmit={(e) => {
+      e.preventDefault()
+      onSearchClick()
+    }}>
       <Input 
         icon={!isMobile && FaSearch}
         placeholder="Filter by title..." 
