@@ -10,11 +10,14 @@ const fetchData = () => {
 export const fetchOffer = (id) => {
 	return fetchData()
 	.then(data => {
-		return data.filter((offer) => {
+		const offer = data.find((offer) => {
 			return offer.id === Number(id)
-		})[0]
+		})
+		if(!offer) {
+			throw new Error("not found")
+		} 
+		return offer
 	})
-	.catch((error) => console.log(error))
 }
 
 export default fetchData;

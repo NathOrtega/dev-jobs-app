@@ -51,7 +51,9 @@ export default function Button({ variant, style, children, onClick, disabled=fal
   const buttonVariant = variant.toLowerCase() 
 
   const handleOnClick = () => {
-    onClick()
+    if(typeof onClick === "function"){
+      onClick()
+    }
   }
 
   return (
