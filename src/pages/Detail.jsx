@@ -154,6 +154,7 @@ export default function Detail() {
 	const [offer, setOffer] = React.useState({});
 	const [notFound, setNotFound] = React.useState(false);
 	const { theme } = useTheme();
+	const isOfferEmpty = !Object.keys(offer).length
 
 	const isMobile = useBreakpoint(down("md"));
 
@@ -168,6 +169,10 @@ export default function Detail() {
 				}
 			});
 	}, []);
+
+	if (isOfferEmpty && !notFound) { // isLoading
+		return <div />
+	}
 
 	return (
 		<React.Fragment>
