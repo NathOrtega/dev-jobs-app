@@ -8,7 +8,6 @@ import {
 	StyledParagraph,
 	StyledHeading4,
 } from "../components/designSystem/Typography";
-import { useTheme } from "../contexts/ThemeContext";
 import Button from "../components/Button";
 import DetailsFragment from "../components/DetailsFragment";
 import { BsDot } from "react-icons/bs";
@@ -153,7 +152,6 @@ export default function Detail() {
 	const params = useParams();
 	const [offer, setOffer] = React.useState({});
 	const [notFound, setNotFound] = React.useState(false);
-	const { theme } = useTheme();
 	const isOfferEmpty = !Object.keys(offer).length
 
 	const isMobile = useBreakpoint(down("md"));
@@ -185,12 +183,11 @@ export default function Detail() {
 							<StyledLogo logoURL={offer.logo} />
 							<div>
 								<StyledHeading3
-									color={theme.text.colorH3}
 									style={{ marginBottom: "8px" }}
 								>
 									{offer.company}
 								</StyledHeading3>
-								<StyledParagraph color={theme.text.colorParagraph}>
+								<StyledParagraph>
 									{offer.company?.toLowerCase()}.com
 								</StyledParagraph>
 							</div>
@@ -218,13 +215,11 @@ export default function Detail() {
 								}
 							>
 								<StyledParagraph
-									color={theme.text.colorParagraph}
 									style={{ marginBottom: "8px" }}
 								>
 									{offer.postedAt} • {offer.contract}
 								</StyledParagraph>
 								<StyledHeading3
-									color={theme.text.colorH3}
 									style={{ marginBottom: "8px" }}
 								>
 									{offer.position}
@@ -247,7 +242,6 @@ export default function Detail() {
 							</StyledAnchor>
 						</div>
 						<StyledParagraph
-							color={theme.text.colorParagraph}
 							style={{ marginBottom: "66px" }}
 						>
 							{offer.description}
@@ -268,10 +262,10 @@ export default function Detail() {
 					<StyledFooterCard>
 						<div>
 							<div>
-								<StyledHeading3 color={theme.text.colorH3}>
+								<StyledHeading3>
 									{offer.position}
 								</StyledHeading3>
-								<StyledParagraph color={theme.text.colorParagraph}>
+								<StyledParagraph>
 									{offer.company}
 								</StyledParagraph>
 							</div>

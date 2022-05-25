@@ -1,5 +1,4 @@
 import React from "react";
-import { useTheme } from "../contexts/ThemeContext"
 import { StyledParagraph, StyledHeading3 } from "./designSystem/Typography";
 import styled from "styled-components"
 
@@ -10,14 +9,12 @@ const ListItem = styled.div`
 `
 
 export default function DetailsFragment({title, description, icon: ListIcon, listItems, style}) {
-  const { theme } = useTheme()
-
   return (
     <div style={style}>
-      <StyledHeading3 color={theme.text.colorH3} style={{marginBottom: "23px"}}>
+      <StyledHeading3 style={{marginBottom: "23px"}}>
         {title}
       </StyledHeading3>
-      <StyledParagraph color={theme.text.colorParagraph} style={{marginBottom: "32px"}}>
+      <StyledParagraph style={{marginBottom: "32px"}}>
         {description}
       </StyledParagraph>
       {
@@ -34,7 +31,7 @@ export default function DetailsFragment({title, description, icon: ListIcon, lis
               }
             </span>
             <span>
-              <StyledParagraph color={theme.text.colorParagraph} style={{marginBottom: "8px"}}>
+              <StyledParagraph style={{marginBottom: "8px"}}>
                 {item}
               </StyledParagraph>
             </span>

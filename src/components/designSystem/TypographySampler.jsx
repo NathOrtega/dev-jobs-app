@@ -84,7 +84,7 @@ export default function TypographySampler({ type, fontSize, lineHeight, sampleTe
 
   return (
     <div style={{maxWidth: "300px", marginTop: "30px"}}>
-      <StyledParagraph color={theme.text.colorParagraph}>
+      <StyledParagraph>
         {type !== "P" && type + " - "}{fontSize} - {lineHeight} line
       </StyledParagraph>
       {styledSampleText}

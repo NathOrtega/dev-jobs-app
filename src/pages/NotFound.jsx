@@ -100,7 +100,7 @@ export default function NotFound() {
           <StyledHeading4 color={theme.text.colorH1} style={{marginBottom: "10px"}}>
             Error 404
           </StyledHeading4>
-          <StyledHeading1 color={theme.text.colorH1} style={{marginBottom: "10px"}}>
+          <StyledHeading1 style={{marginBottom: "10px"}}>
             Hey there
           </StyledHeading1>
           <StyledHeading4 

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useTheme } from "../contexts/ThemeContext";
 import { StyledHeading3, StyledParagraph, StyledHeading4 } from "./designSystem/Typography";
 import { Link } from "react-router-dom";
 import { up } from "styled-breakpoints"
@@ -45,16 +44,14 @@ const Container = styled.div`
 `
 
 export default function OfferCard({ logo, postedAt, contract, position, company, location, id }){
-  const { theme } = useTheme()
-
   return (
     <Link to={`/detail/${id}`} style={{textDecoration: "none"}}>
       <Container logoURL={logo}>
         <div className="logo"/>
         <div>
-          <StyledParagraph color={theme.text.colorParagraph}>{postedAt} • {contract}</StyledParagraph>
-          <StyledHeading3 color={theme.text.colorH3}>{position}</StyledHeading3>
-          <StyledParagraph color={theme.text.colorParagraph}>{company}</StyledParagraph>
+          <StyledParagraph>{postedAt} • {contract}</StyledParagraph>
+          <StyledHeading3>{position}</StyledHeading3>
+          <StyledParagraph>{company}</StyledParagraph>
         </div>
         <StyledHeading4 color="var(--Primary)">{location}</StyledHeading4>
       </Container>

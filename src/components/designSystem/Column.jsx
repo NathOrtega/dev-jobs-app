@@ -16,7 +16,7 @@ export default function Column({ title, children }) {
 
   return (
     <StyledColumn>
-      {title && <StyledHeading3 color={theme.text.colorH3}>{title}</StyledHeading3>}
+      {title && <StyledHeading3>{title}</StyledHeading3>}
       {children}
     </StyledColumn>
   )
