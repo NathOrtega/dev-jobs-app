@@ -6,6 +6,7 @@ import fetchData from "../api";
 import Button from "../components/Button";
 import { StyledHeading3 } from "../components/designSystem/Typography";
 import ErrorBoundary from "../components/ErrorBoundary";
+import { NoResultsAnimation } from "../components/LottieAnimations";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -15,6 +16,12 @@ const StyledContainer = styled.div`
   align-items: center;
   margin: 82px auto 49px;
   max-width: 1250px;
+`
+const NoResultsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 
 const ButtonContainer = styled.div`
@@ -45,12 +52,11 @@ export default function Home() {
         setJobOffers(data)
         setFilteredOffers(data)
       })
-      .catch((error) => console.log(error))
   }, [])
 
   return (
     <React.Fragment>
-      <ErrorBoundary message="Something went wrong!">
+      <ErrorBoundary>
         <div>
           <FiltersBar jobOffers={jobOffers} onSearch={(e) => setFilteredOffers(e)}/>
           {filteredOffers.length 
@@ -62,7 +68,7 @@ export default function Home() {
                       key={id} 
                       logo={logo} 
                       postedAt={postedAt} 
-                      contract={contract} 
+                      contract={contract}
                       position={position} 
                       company={company} 
                       location={location} 
@@ -79,11 +85,12 @@ export default function Home() {
                 </ButtonContainer>
               </StyledContainer>
             :
-            <StyledContainer>
+            <NoResultsContainer>
+              <NoResultsAnimation />
               <StyledHeading3>
                 No matching results found
               </StyledHeading3>
-            </StyledContainer>
+            </NoResultsContainer>
           }
         </div>
       </ErrorBoundary>

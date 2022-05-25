@@ -5,20 +5,23 @@ import Detail from "./pages/Detail";
 import DesignSystem from "./pages/DesignSystem";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Header from "./components/Header";
-import NotFound from "./pages/NotFound"
+import ErrorBoundary from "./components/ErrorBoundary";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
-  return (
-    <ThemeProvider>
-      <Router>
-        <Header logo="Devjobs"/>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/detail/:offerId" element={<Detail />} />
-          <Route path="/design-system" element={<DesignSystem />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
-    </ThemeProvider>
-  );
+	return (
+		<ThemeProvider>
+			<Router>
+				<Header logo="Devjobs" />
+				<ErrorBoundary>
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/detail/:offerId" element={<Detail />} />
+						<Route path="/design-system" element={<DesignSystem />} />
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+				</ErrorBoundary>
+			</Router>
+		</ThemeProvider>
+	);
 }
