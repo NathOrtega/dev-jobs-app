@@ -15,7 +15,7 @@ const StyledFilterBar = styled.form`
   width: 80%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border-radius: 6px;
   margin: 0 auto;
@@ -32,6 +32,7 @@ const StyledFilterBar = styled.form`
 `
 
 const StyledBox = styled.div`
+  width: fit-content;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -122,7 +123,7 @@ export default function FiltersBar({ jobOffers, onSearch }) {
     onSearch(filteredOffers)
   }
 
-  const setResponsiveInputWidth = (mobile, tablet, desktop) => {
+  const getResponsiveInputWidth = (mobile, tablet, desktop) => {
     if (isMobile) {
       return mobile
     } else if (isTablet) {
@@ -144,7 +145,7 @@ export default function FiltersBar({ jobOffers, onSearch }) {
         icon={!isMobile && FaSearch}
         placeholder="Filter by title..." 
         id="titleFilter" 
-        width={ setResponsiveInputWidth("50%", "28%", "40%")}
+        width={getResponsiveInputWidth("60%", "30%", "35%")}
         style={isMobile ? {padding: 0} : inputStyles}
         onChange={handleOnPositionInputChange}
       /> 
@@ -153,8 +154,8 @@ export default function FiltersBar({ jobOffers, onSearch }) {
           icon={!isMobile && MdLocationPin}
           placeholder="Filter by location..." 
           id="locationFilter" 
-          width={ setResponsiveInputWidth("50%", "32%", "26%")}
-          style={isMobile ? {padding: 0} : {...inputStyles, marginLeft: "10px"}}
+          width={getResponsiveInputWidth("60%", "30%", "35%")}
+          style={isMobile ? {padding: 0} : {...inputStyles, marginLeft: "16px"}}
           onChange={handleOnLocationInputChange}
           value={location}
         /> 

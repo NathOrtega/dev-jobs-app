@@ -10,7 +10,7 @@ const StyledCheckbox = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 3px;
-  margin: 10px 16px 10px 10px;
+  margin: 10px 16px;
   background-color: ${props => props.isActive ? "var(--Primary)" : "var(--Light300)"};
   cursor: pointer;
 
