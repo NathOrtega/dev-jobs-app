@@ -13,6 +13,7 @@ import Toggle from "../components/Toggle"
 import Checkbox from "../components/Checkbox";
 import { useTheme } from "../contexts/ThemeContext"
 import { up } from "styled-breakpoints"
+import { Link } from "react-router-dom";
 
 const StyledColoredDiv = styled.div`
     width: 141px;
@@ -36,6 +37,7 @@ export default function DesignSystem() {
   const { type, fontSize, lineHeight, sampleText } = paragraphStyles
   const { setThemeName } = useTheme()
   const [ ischecked, setIsChecked ] = React.useState(false)
+  const [ shouldThrowError, setShouldThrowError ] = React.useState(false)
 
   const handleOnToggle = (e) => {
     setThemeName(e === true ? "dark" : "light")
@@ -45,6 +47,10 @@ export default function DesignSystem() {
     setIsChecked((prevState) => prevState === true ? false : true)
   }
 
+  const throwError = () => {
+    setShouldThrowError(true)
+  }
+
   React.useEffect(() => {
     if(ischecked) {
       console.log("Checked!")
@@ -52,6 +58,12 @@ export default function DesignSystem() {
       console.log("Unchecked!")
     }
   }, [ischecked])
+
+  React.useEffect(() => {
+    if(shouldThrowError){
+      throw new Error()
+    }
+  }, [shouldThrowError])
 
   return (
     <React.Fragment>
@@ -129,6 +141,25 @@ export default function DesignSystem() {
             </StyledBox>
           </Row>
         </Column>
+      </TwoColumnsSection>
+      <TwoColumnsSection numeration="4" title="Errors">
+        <Row title="General error">
+          <Button
+          variant="primary"
+          onClick={throwError}
+          >
+            Error
+          </Button>
+        </Row>
+        <Row title="404 error">
+          <Link to="/url-that-does-not-exist">
+            <Button
+              variant="primary"
+              >
+                404
+            </Button>
+          </Link>
+        </Row>
       </TwoColumnsSection>
     </React.Fragment>
   )

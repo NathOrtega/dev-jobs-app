@@ -3,9 +3,10 @@ import { up } from "styled-breakpoints"
 import { StyledLogo } from "./StyledLogo";
 import Toggle from "./Toggle";
 import { useTheme } from "../contexts/ThemeContext";
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { StyledHeading2 } from "./designSystem/Typography";
 import { darkTheme } from "../Theme";
+import { FaPaintBrush } from "react-icons/fa"
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -34,6 +35,21 @@ const StyledHeader = styled.div`
   }
 `
 
+const Container = styled.div`
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`
+
+const iconStyles = {
+  fontSize: "20px",
+  color: "var(--Light100)",
+  margin: "10px 0 0 20px"
+}
+
 export default function Header({logo}) {
   const { setThemeName } = useTheme()
   const location = useLocation()
@@ -44,9 +60,19 @@ export default function Header({logo}) {
 
   return (
     <StyledHeader>
-        <StyledLogo to="/"> 
-          {logo}
-        </StyledLogo>
+        <Container>
+          <StyledLogo to="/"> 
+            {logo}
+          </StyledLogo>
+          { location.pathname === "/design-system"
+            ?
+            null
+            :
+            <Link to="/design-system">
+              <FaPaintBrush style={iconStyles}/>
+            </Link>
+          }
+        </Container>
         { location.pathname === "/design-system" 
           ? 
           <StyledHeading2 color={darkTheme.text.colorH3}> 
@@ -60,7 +86,7 @@ export default function Header({logo}) {
             leftImageSrc="../resources/moon.svg"
             leftImageStyle={{width: "14px", height: "14px"}}
           />
-        }
+      }
       </StyledHeader>
   )
 }
