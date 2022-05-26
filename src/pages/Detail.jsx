@@ -14,6 +14,7 @@ import { BsDot } from "react-icons/bs";
 import { up, down } from "styled-breakpoints";
 import { useBreakpoint } from "styled-breakpoints/react-styled";
 import NotFound from "./NotFound"
+import Loader from "../components/Loader";
 
 const StyledLogo = styled.div`
 	width: 50px;
@@ -153,6 +154,7 @@ export default function Detail() {
 	const [offer, setOffer] = React.useState({});
 	const [notFound, setNotFound] = React.useState(false);
 	const isOfferEmpty = !Object.keys(offer).length
+	const isLoading = isOfferEmpty && !notFound
 
 	const isMobile = useBreakpoint(down("md"));
 
@@ -168,8 +170,8 @@ export default function Detail() {
 			});
 	}, []);
 
-	if (isOfferEmpty && !notFound) { // isLoading
-		return <div />
+	if (isLoading) {
+		return <Loader/>
 	}
 
 	return (

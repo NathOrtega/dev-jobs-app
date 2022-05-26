@@ -14,6 +14,7 @@ import Checkbox from "../components/Checkbox";
 import { useTheme } from "../contexts/ThemeContext"
 import { up } from "styled-breakpoints"
 import { Link } from "react-router-dom";
+import Loader from "../components/Loader";
 
 const StyledColoredDiv = styled.div`
     width: 141px;
@@ -29,15 +30,17 @@ const StyledColoredDiv = styled.div`
 const StyledBox = styled.div`
   ${up("md")} {
     width: 300px;
-    height: 132px;
+    height: 100px;
   }
 `
 
 export default function DesignSystem() {
   const { type, fontSize, lineHeight, sampleText } = paragraphStyles
-  const { setThemeName } = useTheme()
+  const { setThemeName, themeName } = useTheme()
   const [ ischecked, setIsChecked ] = React.useState(false)
+  const [ isToggled ] = React.useState(themeName === "dark" ? true : false)
   const [ shouldThrowError, setShouldThrowError ] = React.useState(false)
+  const [ isLoading, setIsLoading ] = React.useState(false)
 
   const handleOnToggle = (e) => {
     setThemeName(e === true ? "dark" : "light")
@@ -64,6 +67,10 @@ export default function DesignSystem() {
       throw new Error()
     }
   }, [shouldThrowError])
+
+  if(isLoading) {
+    return <Loader />
+  }
 
   return (
     <React.Fragment>
@@ -131,6 +138,7 @@ export default function DesignSystem() {
                   rightImageStyle={{width: "20px", height: "20px"}}
                   leftImageSrc="./resources/moon.svg"
                   leftImageStyle={{width: "14px", height: "14px"}}
+                  toggled={isToggled}
                 />
               </StyledColoredDiv>
             </StyledBox>
@@ -142,7 +150,7 @@ export default function DesignSystem() {
           </Row>
         </Column>
       </TwoColumnsSection>
-      <TwoColumnsSection numeration="4" title="Errors">
+      <TwoColumnsSection numeration="4" title="Errors & Loader">
         <Row title="General error">
           <Button
           variant="primary"
@@ -159,6 +167,14 @@ export default function DesignSystem() {
                 404
             </Button>
           </Link>
+        </Row>
+        <Row title="Loading">
+          <Button
+            variant="primary"
+            onClick={() => setIsLoading(true)}
+            >
+              Loading
+          </Button>
         </Row>
       </TwoColumnsSection>
     </React.Fragment>

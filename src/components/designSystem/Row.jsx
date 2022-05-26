@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { StyledColumn } from "./Column";
 import { StyledHeading3 } from "./Typography";
-import { useTheme } from "../../contexts/ThemeContext";
 
 const StyledRow = styled.div`
   width: 300px;
@@ -14,7 +13,6 @@ const StyledRow = styled.div`
 `
 
 export default function Row({ title, children }) {
-  const { theme } = useTheme()
   return (
     <StyledColumn>
       {title && <StyledHeading3 style={{marginBottom: "20px"}}>

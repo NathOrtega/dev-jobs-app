@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import { StyledHeading3 } from "../components/designSystem/Typography";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { NoResultsAnimation } from "../components/LottieAnimations";
+import Loader from "../components/Loader";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -35,6 +36,7 @@ export default function Home() {
   const [ jobOffers, setJobOffers ] = React.useState([])
   const [ filteredOffers, setFilteredOffers ] = React.useState([])
   const [ visibleJobOffers, setVisibleJobOffers ] = React.useState(6)
+  const [ isLoading, setIsLoading ] = React.useState(false)
 
   const loadMoreJobOffers = () => {
     setVisibleJobOffers(prevValue => {
@@ -47,19 +49,25 @@ export default function Home() {
   }
 
   React.useEffect(() => {
-    fetchData("/data.json")
+    setIsLoading(true)
+    fetchData()
       .then((data) => {
         setJobOffers(data)
         setFilteredOffers(data)
+        setIsLoading(false)
       })
   }, [])
+
+  if(isLoading) {
+    return <Loader/>
+  }
 
   return (
     <React.Fragment>
       <ErrorBoundary>
         <div>
           <FiltersBar jobOffers={jobOffers} onSearch={(e) => setFilteredOffers(e)}/>
-          {filteredOffers.length 
+          {filteredOffers.length && !isLoading
             ? <StyledContainer>
                 {filteredOffers.slice(0, visibleJobOffers).map(({ id, logo, postedAt, contract, position, company, location} ) => {
                   return (

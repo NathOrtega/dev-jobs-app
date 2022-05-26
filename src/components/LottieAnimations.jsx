@@ -2,6 +2,8 @@ import React from "react"
 import lottie from "lottie-web"
 import error from "../error.json"
 import noResults from "../noResults.json"
+import loader from "../loader.json"
+import loadingText from "../loadingText.json"
 import styled from "styled-components"
 import { up } from "styled-breakpoints"
 
@@ -12,6 +14,16 @@ const Container = styled.div`
   ${up("md")}{
     width: 400px;
     height: 400px;
+  }
+`
+
+const TextContainer = styled.div`
+  width: 100px;
+  height: 100px;
+
+  ${up("md")}{
+    width: 200px;
+    height: 200px;
   }
 `
 
@@ -38,5 +50,31 @@ export function NoResultsAnimation() {
   
   return (
     <Container id="noResultsImage"/>
+  )
+}
+
+export function Loader() {
+  React.useEffect(() => {
+    lottie.loadAnimation({
+      container: document.querySelector("#loaderImage"),
+      animationData: loader
+    });
+  }, []);
+  
+  return (
+    <Container id="loaderImage"/>
+  )
+}
+
+export function LoadingText() {
+  React.useEffect(() => {
+    lottie.loadAnimation({
+      container: document.querySelector("#loadingImage"),
+      animationData: loadingText
+    });
+  }, []);
+  
+  return (
+    <TextContainer id="loadingImage"/>
   )
 }

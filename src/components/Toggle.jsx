@@ -48,8 +48,8 @@ const StyledSwitch = styled.label`
   }
 `
 
-export default function Toggle({ onClick, leftImageSrc, rightImageSrc, rightImageStyle, leftImageStyle }) {
-  const [ isToggled, setIsToggled ] = React.useState(false)
+export default function Toggle({ onClick, leftImageSrc, rightImageSrc, rightImageStyle, leftImageStyle, toggled }) {
+  const [ isToggled, setIsToggled ] = React.useState(toggled ? toggled : false)
 
   const onToggled = () => {
     setIsToggled((prevState) => prevState === false ? true : false)

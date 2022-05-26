@@ -15,7 +15,7 @@ export default function App() {
 				<Header logo="Devjobs" />
 				<ErrorBoundary>
 					<Routes>
-						<Route path="/" element={<Home />} />
+						<Route path="/" element={<Home />}/>
 						<Route path="/detail/:offerId" element={<Detail />} />
 						<Route path="/design-system" element={<DesignSystem />} />
 						<Route path="*" element={<NotFound />} />
