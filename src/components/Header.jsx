@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import { up } from "styled-breakpoints"
 import { StyledLogo } from "./StyledLogo";
-import Toggle from "./Toggle";
-import { useTheme } from "../contexts/ThemeContext";
 import { useLocation, Link } from 'react-router-dom';
 import { StyledHeading2 } from "./designSystem/Typography";
 import { darkTheme } from "../Theme";
 import { FaPaintBrush } from "react-icons/fa"
+import ToggleTheme from "./ToggleTheme";
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -51,12 +50,7 @@ const iconStyles = {
 }
 
 export default function Header({logo}) {
-  const { setThemeName, themeName } = useTheme()
   const location = useLocation()
-
-  const handleOnToggle = (e) => {
-    setThemeName(e === true ? "dark" : "light")
-  }
 
   return (
     <StyledHeader>
@@ -79,14 +73,7 @@ export default function Header({logo}) {
             Design System
           </StyledHeading2>
           :
-          <Toggle 
-            onClick={(e) => handleOnToggle(e)} 
-            rightImageSrc="../resources/sun.svg" 
-            rightImageStyle={{width: "20px", height: "20px"}}
-            leftImageSrc="../resources/moon.svg"
-            leftImageStyle={{width: "14px", height: "14px"}}
-            isToggled={themeName === "dark"}
-          />
+          <ToggleTheme />
       }
       </StyledHeader>
   )

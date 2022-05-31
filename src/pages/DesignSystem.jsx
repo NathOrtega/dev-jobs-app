@@ -9,9 +9,8 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import { FaSearch } from "react-icons/fa"
 import styled from "styled-components";
-import Toggle from "../components/Toggle"
+import ToggleTheme from "../components/ToggleTheme"
 import Checkbox from "../components/Checkbox";
-import { useTheme } from "../contexts/ThemeContext"
 import { up } from "styled-breakpoints"
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
@@ -36,15 +35,9 @@ const StyledBox = styled.div`
 
 export default function DesignSystem() {
   const { type, fontSize, lineHeight, sampleText } = paragraphStyles
-  const { setThemeName, themeName } = useTheme()
   const [ ischecked, setIsChecked ] = React.useState(false)
-  const [ isToggled ] = React.useState(themeName === "dark" ? true : false)
   const [ shouldThrowError, setShouldThrowError ] = React.useState(false)
   const [ isLoading, setIsLoading ] = React.useState(false)
-
-  const handleOnToggle = (e) => {
-    setThemeName(e === true ? "dark" : "light")
-  }
 
   const handleOnCheckboxChange = () => {
     setIsChecked((prevState) => prevState === true ? false : true)
@@ -132,14 +125,7 @@ export default function DesignSystem() {
           <Row title="Toggle">
             <StyledBox>
               <StyledColoredDiv bgColor="var(--Primary)">
-                < Toggle 
-                  onClick={(e) => handleOnToggle(e)} 
-                  rightImageSrc="./resources/sun.svg" 
-                  rightImageStyle={{width: "20px", height: "20px"}}
-                  leftImageSrc="./resources/moon.svg"
-                  leftImageStyle={{width: "14px", height: "14px"}}
-                  toggled={isToggled}
-                />
+                < ToggleTheme />
               </StyledColoredDiv>
             </StyledBox>
           </Row>
