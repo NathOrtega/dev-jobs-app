@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTheme } from "../contexts/ThemeContext";
 
 const StyledToggle = styled.div`
   width: 112px;
@@ -49,7 +50,8 @@ const StyledSwitch = styled.label`
 `
 
 export default function Toggle({ onClick, leftImageSrc, rightImageSrc, rightImageStyle, leftImageStyle, toggled }) {
-  const [ isToggled, setIsToggled ] = React.useState(toggled ? toggled : false)
+  const { themeName } = useTheme()
+  const [ isToggled, setIsToggled ] = React.useState(toggled ? toggled : themeName === "dark")
 
   const onToggled = () => {
     setIsToggled((prevState) => prevState === false ? true : false)

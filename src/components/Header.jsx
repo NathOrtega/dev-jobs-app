@@ -51,7 +51,7 @@ const iconStyles = {
 }
 
 export default function Header({logo}) {
-  const { setThemeName } = useTheme()
+  const { setThemeName, themeName } = useTheme()
   const location = useLocation()
 
   const handleOnToggle = (e) => {
@@ -85,6 +85,7 @@ export default function Header({logo}) {
             rightImageStyle={{width: "20px", height: "20px"}}
             leftImageSrc="../resources/moon.svg"
             leftImageStyle={{width: "14px", height: "14px"}}
+            isToggled={themeName === "dark"}
           />
       }
       </StyledHeader>

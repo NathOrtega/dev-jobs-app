@@ -5,7 +5,8 @@ import { lightTheme, darkTheme } from "../Theme";
 export const ThemeContext = React.createContext()
 
 export const ThemeProvider = (props) => {
-  const [ themeName, setThemeName ] = React.useState("light")
+  const userPrefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [ themeName, setThemeName ] = React.useState(userPrefersDarkMode ? "dark" : "light")
   const root = document.getElementById("root")
   const bgColorTheme = themeName === "light" ? lightTheme.body.backgroundColor : darkTheme.body.backgroundColor
   const theme = themeName === "light" ? lightTheme : darkTheme
