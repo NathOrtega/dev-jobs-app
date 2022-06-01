@@ -6,12 +6,8 @@ export default function ToggleTheme() {
   const { themeName, setThemeName } = useTheme()
 
   const handleOnToggle = () => {
-    setThemeName(prevValue => prevValue === "light" ? "dark" : "light")
+    setThemeName(themeName === "light" ? "dark" : "light")
   }
-
-  React.useEffect(() => {
-    window.localStorage.setItem("themeName", themeName)
-  }, [themeName])
 
   return (
     <Toggle
