@@ -1,38 +1,40 @@
 :root {
-  --Primary: #5964E0;
-  --Secondary: #939BF4;
-  --SecondaryLight: #D6D8F7;
-  --Dark100: #19202D;
-  --Dark200: #121721;
-  --Dark300: #000000;
-  --Light100: #FFFFFF;
-  --Light200: #F4F6F8;
-  --Light300: #E7E8E9;
-  --Neutral100: #9DAEC2;
-  --Neutral200: #6E8098;
-  --Neutral300: #D6D6D6;
-  --DarkBg100: #1A202D;
-  --DarkBg200: #303642;
-  --DarkBg300: #6B6E77;
-  --LightBg100: #EEEFFC;
-  --LightBg200: #C5C9F4;
+	--Primary: #5964e0;
+	--Secondary: #939bf4;
+	--SecondaryLight: #d6d8f7;
+	--Dark100: #19202d;
+	--Dark200: #121721;
+	--Dark300: #000000;
+	--Light100: #ffffff;
+	--Light200: #f4f6f8;
+	--Light300: #e7e8e9;
+	--Neutral100: #9daec2;
+	--Neutral200: #6e8098;
+	--Neutral300: #d6d6d6;
+	--DarkBg100: #1a202d;
+	--DarkBg200: #303642;
+	--DarkBg300: #6b6e77;
+	--LightBg100: #eeeffc;
+	--LightBg200: #c5c9f4;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Kumbh Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Kumbh Sans", sans-serif;
 }
 
-html, body, #root {
-  width: 100%;
+html,
+body,
+#root {
+	width: 100%;
 }
 
 .overflow-hidden {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .hidden {
-  display: none;
+	display: none;
 }

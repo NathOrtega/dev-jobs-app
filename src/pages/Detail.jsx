@@ -13,7 +13,7 @@ import DetailsFragment from "../components/DetailsFragment";
 import { BsDot } from "react-icons/bs";
 import { up, down } from "styled-breakpoints";
 import { useBreakpoint } from "styled-breakpoints/react-styled";
-import NotFound from "./NotFound"
+import NotFound from "./NotFound";
 import Loader from "../components/Loader";
 
 const StyledLogo = styled.div`
@@ -153,8 +153,8 @@ export default function Detail() {
 	const params = useParams();
 	const [offer, setOffer] = React.useState({});
 	const [notFound, setNotFound] = React.useState(false);
-	const isOfferEmpty = !Object.keys(offer).length
-	const isLoading = isOfferEmpty && !notFound
+	const isOfferEmpty = !Object.keys(offer).length;
+	const isLoading = isOfferEmpty && !notFound;
 
 	const isMobile = useBreakpoint(down("md"));
 
@@ -171,7 +171,7 @@ export default function Detail() {
 	}, []);
 
 	if (isLoading) {
-		return <Loader/>
+		return <Loader />;
 	}
 
 	return (
@@ -184,9 +184,7 @@ export default function Detail() {
 						<Wrapper>
 							<StyledLogo logoURL={offer.logo} />
 							<div>
-								<StyledHeading3
-									style={{ marginBottom: "8px" }}
-								>
+								<StyledHeading3 style={{ marginBottom: "8px" }}>
 									{offer.company}
 								</StyledHeading3>
 								<StyledParagraph>
@@ -216,14 +214,10 @@ export default function Detail() {
 										: { width: "100%", margin: "0" }
 								}
 							>
-								<StyledParagraph
-									style={{ marginBottom: "8px" }}
-								>
+								<StyledParagraph style={{ marginBottom: "8px" }}>
 									{offer.postedAt} • {offer.contract}
 								</StyledParagraph>
-								<StyledHeading3
-									style={{ marginBottom: "8px" }}
-								>
+								<StyledHeading3 style={{ marginBottom: "8px" }}>
 									{offer.position}
 								</StyledHeading3>
 								<StyledHeading4 color="var(--Primary)">
@@ -243,9 +237,7 @@ export default function Detail() {
 								</Button>
 							</StyledAnchor>
 						</div>
-						<StyledParagraph
-							style={{ marginBottom: "66px" }}
-						>
+						<StyledParagraph style={{ marginBottom: "66px" }}>
 							{offer.description}
 						</StyledParagraph>
 						<DetailsFragment
@@ -264,12 +256,8 @@ export default function Detail() {
 					<StyledFooterCard>
 						<div>
 							<div>
-								<StyledHeading3>
-									{offer.position}
-								</StyledHeading3>
-								<StyledParagraph>
-									{offer.company}
-								</StyledParagraph>
+								<StyledHeading3>{offer.position}</StyledHeading3>
+								<StyledParagraph>{offer.company}</StyledParagraph>
 							</div>
 							<StyledAnchor href={offer.apply} target="_blank" rel="noreferrer">
 								<Button variant="primary" style={{ width: "279px" }}>
