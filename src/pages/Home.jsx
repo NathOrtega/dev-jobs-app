@@ -73,43 +73,16 @@ export default function Home() {
 						<StyledContainer>
 							{filteredOffers
 								.slice(0, visibleJobOffers)
-								.map(
-									({
-										id,
-										logo,
-										postedAt,
-										contract,
-										position,
-										company,
-										location,
-									}) => {
-										return (
-											<OfferCard
-												id={id}
-												key={id}
-												logo={logo}
-												postedAt={postedAt}
-												contract={contract}
-												position={position}
-												company={company}
-												location={location}
-											/>
-										);
-									}
-								)}
-							<ButtonContainer>
-								<Button
-									variant="primary"
-									onClick={loadMoreJobOffers}
-									style={
-										visibleJobOffers >= filteredOffers.length
-											? { display: "none" }
-											: null
-									}
-								>
-									Load More
-								</Button>
-							</ButtonContainer>
+								.map((offerInfo, index) => {
+									return <OfferCard key={index} {...offerInfo} />;
+								})}
+							{visibleJobOffers < filteredOffers.length && (
+								<ButtonContainer>
+									<Button variant="primary" onClick={loadMoreJobOffers}>
+										Load More
+									</Button>
+								</ButtonContainer>
+							)}
 						</StyledContainer>
 					) : (
 						<NoResultsContainer>
