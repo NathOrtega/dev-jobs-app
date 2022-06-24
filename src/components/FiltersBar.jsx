@@ -116,16 +116,18 @@ export default function FiltersBar({ jobOffers, onSearch }) {
 	};
 
 	const onSearchClick = () => {
-		const filteredOffers = jobOffers
-			.filter((offer) =>
-				offer.position.toLowerCase().includes(position.toLowerCase())
-			)
-			.filter((offer) =>
-				location
-					? offer.location.toLowerCase().includes(location.toLowerCase())
-					: true
-			)
-			.filter((offer) => (isFulltime ? offer.contract === "Full Time" : true));
+		const filteredOffers = jobOffers.filter((offer) => {
+			const offerIsFulltime = offer.contract === "Full Time";
+			const fullTimeMatches = isFulltime === offerIsFulltime;
+			const positionMatches = offer.position
+				.toLowerCase()
+				.includes(position.toLowerCase());
+			const locationMatches = offer.location
+				.toLowerCase()
+				.includes(location.toLowerCase());
+
+			return fullTimeMatches && positionMatches && locationMatches;
+		});
 		onSearch(filteredOffers);
 	};
 
