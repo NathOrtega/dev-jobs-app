@@ -54,7 +54,7 @@ export default function FiltersModal({
 		location === initialLocation && isFulltime === initialIsFulltime;
 
 	return (
-		<Modal isOpen={isOpen} onClose={handleOnClose}>
+		<Modal isOpen={isOpen} onClose={handleOnClose} containerElementId="modal">
 			<Input
 				icon={MdLocationPin}
 				width="100%"

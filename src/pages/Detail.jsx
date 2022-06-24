@@ -120,8 +120,8 @@ const StyledFooterCard = styled(Card)`
 	align-items: center;
 	justify-content: center;
 
-	div {
-		div {
+	.container {
+		.textContainer {
 			display: none;
 		}
 	}
@@ -130,19 +130,20 @@ const StyledFooterCard = styled(Card)`
 		padding: 25px 40px;
 		justify-content: space-between;
 
-		div {
+		.container {
 			width: 100%;
 			display: flex;
+			justify-content: space-between;
 			flex-direction: row;
 
-			div {
+			.textContainer {
 				display: block;
 			}
 		}
 	}
 
 	${up("xl")} {
-		div {
+		.container {
 			width: 730px;
 			margin: 0 auto;
 		}
@@ -254,8 +255,8 @@ export default function Detail() {
 						/>
 					</StyledContentCard>
 					<StyledFooterCard>
-						<div>
-							<div>
+						<div className="container">
+							<div className="textContainer">
 								<StyledHeading3>{offer.position}</StyledHeading3>
 								<StyledParagraph>{offer.company}</StyledParagraph>
 							</div>

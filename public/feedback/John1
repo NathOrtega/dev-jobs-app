@@ -19,9 +19,12 @@ Try to put hooks calls at the beginning of the components
 
 - https://github.com/NathOrtega/dev-jobs-app/blob/f486fa7e4d043b1295ae7f628e58ef8607f42573/src/components/FiltersBar.jsx#L118
   - A single filter would be enough, instead of iterating once per filter
-- https://github.com/NathOrtega/dev-jobs-app/blob/c06e¬6e63e33ac421e8fc37112ae7c476c12edc86/src/pages/Detail.jsx#L133
-  - These type of selectors are very fragile since a change in the markup will break the styles
-- https://github.com/NathOrtega/dev-jobs-app/blob/74792b439e5115631112e193aa036252538b77cb/src/components/Button.jsx#L17
-  - Disabled styles should be applied only if the button is disabled
-- https://github.com/NathOrtega/dev-jobs-app/blob/53c28fd3c51f88566c693559d12118c5fc27502e/src/components/Modal.jsx#L40
-  - The element id should be customizable (optionally)
+
+✔️ https://github.com/NathOrtega/dev-jobs-app/blob/c06e¬6e63e33ac421e8fc37112ae7c476c12edc86/src/pages/Detail.jsx#L133
+These type of selectors are very fragile since a change in the markup will break the styles
+
+✔️ https://github.com/NathOrtega/dev-jobs-app/blob/74792b439e5115631112e193aa036252538b77cb/src/components/Button.jsx#L17
+Disabled styles should be applied only if the button is disabled
+
+✔️ https://github.com/NathOrtega/dev-jobs-app/blob/53c28fd3c51f88566c693559d12118c5fc27502e/src/components/Modal.jsx#L40
+The element id should be customizable (optionally)

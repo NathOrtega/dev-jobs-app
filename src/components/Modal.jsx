@@ -21,7 +21,12 @@ const StyledModal = styled.div`
 	border-radius: 6px;
 `;
 
-export default function Modal({ children, isOpen, onClose }) {
+export default function Modal({
+	children,
+	isOpen,
+	onClose,
+	containerElementId,
+}) {
 	React.useEffect(() => {
 		if (isOpen) {
 			document.body.classList.add("overflow-hidden");
@@ -35,6 +40,6 @@ export default function Modal({ children, isOpen, onClose }) {
 			<StyledOverlay onClick={onClose} />
 			<StyledModal>{children}</StyledModal>
 		</div>,
-		document.getElementById("modal")
+		document.getElementById(containerElementId)
 	);
 }
