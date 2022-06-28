@@ -85,12 +85,11 @@ export default function FiltersBar({ jobOffers, onSearch }) {
 		borderBottomRightRadius: "0",
 	};
 
-	// Ask how to make linter happy with useEffect
-
 	React.useEffect(() => {
 		if (isMobile) {
 			onSearchClick();
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [location, isFulltime]);
 
 	const handleOnClick = () => {

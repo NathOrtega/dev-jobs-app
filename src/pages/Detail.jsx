@@ -169,6 +169,7 @@ export default function Detail() {
 					setNotFound(true);
 				}
 			});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	if (isLoading) {

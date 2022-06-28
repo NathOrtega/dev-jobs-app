@@ -34,6 +34,7 @@ export default function FiltersModal({
 			setLocation(initialLocation);
 			setIsFulltime(initialIsFulltime);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isOpen]);
 
 	const handleOnInputChange = (newValue) => {
