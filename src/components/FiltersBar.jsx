@@ -116,8 +116,11 @@ export default function FiltersBar({ jobOffers, onSearch }) {
 
 	const onSearchClick = () => {
 		const filteredOffers = jobOffers.filter((offer) => {
+			let fullTimeMatches = true;
 			const offerIsFulltime = offer.contract === "Full Time";
-			const fullTimeMatches = isFulltime === offerIsFulltime;
+			if (isFulltime) {
+				fullTimeMatches = isFulltime === offerIsFulltime;
+			}
 			const positionMatches = offer.position
 				.toLowerCase()
 				.includes(position.toLowerCase());
