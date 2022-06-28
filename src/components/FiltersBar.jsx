@@ -9,6 +9,7 @@ import { up, down, between } from "styled-breakpoints";
 import { useBreakpoint } from "styled-breakpoints/react-styled";
 import Checkbox from "./Checkbox";
 import { useTheme } from "../contexts/ThemeContext";
+import useResponsiveGetter from "./utils/useResponsiveGetter";
 
 const StyledFilterBar = styled.form`
 	height: 80px;
@@ -133,18 +134,9 @@ export default function FiltersBar({ jobOffers, onSearch }) {
 		onSearch(filteredOffers);
 	};
 
-	const getResponsiveInputWidth = (mobile, tablet, desktop) => {
-		if (isMobile) {
-			return mobile;
-		} else if (isTablet) {
-			return tablet;
-		} else {
-			return desktop;
-		}
-	};
-
 	const isMobile = useBreakpoint(down("md"));
 	const isTablet = useBreakpoint(between("md", "xl"));
+	const getResponsiveValue = useResponsiveGetter("60%", "30%", "35%");
 
 	return (
 		<StyledFilterBar
@@ -157,7 +149,7 @@ export default function FiltersBar({ jobOffers, onSearch }) {
 				icon={!isMobile && FaSearch}
 				placeholder="Filter by title..."
 				id="titleFilter"
-				width={getResponsiveInputWidth("60%", "30%", "35%")}
+				width={getResponsiveValue()}
 				style={isMobile ? { padding: 0 } : inputStyles}
 				onChange={handleOnPositionInputChange}
 			/>
@@ -166,7 +158,7 @@ export default function FiltersBar({ jobOffers, onSearch }) {
 					icon={!isMobile && MdLocationPin}
 					placeholder="Filter by location..."
 					id="locationFilter"
-					width={getResponsiveInputWidth("60%", "30%", "35%")}
+					width={getResponsiveValue()}
 					style={
 						isMobile ? { padding: 0 } : { ...inputStyles, marginLeft: "16px" }
 					}

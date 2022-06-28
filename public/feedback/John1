@@ -13,9 +13,8 @@ Conditional render would read easier than "visibleJobOffers >= filteredOffers.le
 ✔️ https://github.com/NathOrtega/dev-jobs-app/blob/f486fa7e4d043b1295ae7f628e58ef8607f42573/src/components/FiltersBar.jsx#L138
 Try to put hooks calls at the beginning of the components
 
-- https://github.com/NathOrtega/dev-jobs-app/blob/f486fa7e4d043b1295ae7f628e58ef8607f42573/src/components/FiltersBar.jsx#L128
-
-  - This functions could live in a utils file, since it could be re-used in other places, but change the name of it
+✔️ https://github.com/NathOrtega/dev-jobs-app/blob/f486fa7e4d043b1295ae7f628e58ef8607f42573/src/components/FiltersBar.jsx#L128
+This functions could live in a utils file, since it could be re-used in other places, but change the name of it
 
 ✔️ https://github.com/NathOrtega/dev-jobs-app/blob/f486fa7e4d043b1295ae7f628e58ef8607f42573/src/components/FiltersBar.jsx#L118
 A single filter would be enough, instead of iterating once per filter
