@@ -1,11 +1,11 @@
 import { down, between } from "styled-breakpoints";
 import { useBreakpoint } from "styled-breakpoints/react-styled";
 
-export default function useResponsiveGetter(mobile, tablet, desktop) {
+export default function useGetResponsiveValue() {
 	const isMobile = useBreakpoint(down("md"));
 	const isTablet = useBreakpoint(between("md", "xl"));
 
-	const getResponsiveValue = () => {
+	const getResponsiveValue = (mobile, tablet, desktop) => {
 		if (isMobile) {
 			return mobile;
 		} else if (isTablet) {
