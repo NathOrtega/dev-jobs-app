@@ -13,4 +13,4 @@
 
 ## 💻 Demo:
 
-<a href="" target="_blank">devJobs App</a>
+<a href="https://nathortega.github.io/dev-jobs-app/" target="_blank">devJobs App</a>
