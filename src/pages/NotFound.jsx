@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { up, down } from "styled-breakpoints";
 import { useBreakpoint } from "styled-breakpoints/react-styled";
 import ScrollReveal from "scrollreveal";
+import GhostImage from "../resources/ghost.png";
 
 const Container = styled.div`
 	width: 100%;
@@ -124,7 +125,7 @@ export default function NotFound() {
 					</Link>
 				</Wrapper>
 				<Wrapper className="image">
-					<Ghost src="../resources/ghost.png" alt="Ghost" />
+					<Ghost src={GhostImage} alt="Ghost" />
 					<Shadow />
 				</Wrapper>
 			</Container>

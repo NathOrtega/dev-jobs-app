@@ -1,10 +1,7 @@
-const DATA_URL = "/data.json";
+import jsonData from "./resources/data.json";
 
 const fetchData = () => {
-	const data = fetch(DATA_URL).then((response) => {
-		return response.json();
-	});
-	return data;
+	return Promise.resolve(jsonData);
 };
 
 export const fetchOffer = (id) => {

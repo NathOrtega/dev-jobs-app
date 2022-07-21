@@ -15,6 +15,7 @@ import { up, down } from "styled-breakpoints";
 import { useBreakpoint } from "styled-breakpoints/react-styled";
 import NotFound from "./NotFound";
 import Loader from "../components/Loader";
+import logosMap from "../resources/logosMap";
 
 const StyledLogo = styled.div`
 	width: 50px;
@@ -184,7 +185,7 @@ export default function Detail() {
 				<React.Fragment>
 					<StyledHeaderCard>
 						<Wrapper>
-							<StyledLogo logoURL={offer.logo} />
+							<StyledLogo logoURL={logosMap[offer.id].default} />
 							<div>
 								<StyledHeading3 style={{ marginBottom: "8px" }}>
 									{offer.company}
