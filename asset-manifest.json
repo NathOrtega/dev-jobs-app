@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/dev-jobs-app/static/css/main.6489b770.css",
-    "main.js": "/dev-jobs-app/static/js/main.00550f36.js",
+    "main.js": "/dev-jobs-app/static/js/main.3a654523.js",
     "static/media/ghost.png": "/dev-jobs-app/static/media/ghost.cbedbdd72a5c40e33a18.png",
     "static/media/pomodoro.svg": "/dev-jobs-app/static/media/pomodoro.1993bf9c0c6bca1546a8064694dda491.svg",
     "static/media/scoot.svg": "/dev-jobs-app/static/media/scoot.006560ce8e7c6f6cacdb927138bfe35c.svg",
@@ -21,11 +21,12 @@
     "index.html": "/dev-jobs-app/index.html",
     "static/media/officelite.svg": "/dev-jobs-app/static/media/officelite.5bb3e2ccfd5e7496e5cfa992a893a6c4.svg",
     "static/media/pod.svg": "/dev-jobs-app/static/media/pod.4f015167d51818a3df44129442bedb08.svg",
+    "static/media/checkMark.svg": "/dev-jobs-app/static/media/checkMark.66b182f474b2aab1a866249ce4640994.svg",
     "main.6489b770.css.map": "/dev-jobs-app/static/css/main.6489b770.css.map",
-    "main.00550f36.js.map": "/dev-jobs-app/static/js/main.00550f36.js.map"
+    "main.3a654523.js.map": "/dev-jobs-app/static/js/main.3a654523.js.map"
   },
   "entrypoints": [
     "static/css/main.6489b770.css",
-    "static/js/main.00550f36.js"
+    "static/js/main.3a654523.js"
   ]
 }
