@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/dev-jobs-app/static/css/main.6489b770.css",
-    "main.js": "/dev-jobs-app/static/js/main.cd546205.js",
+    "main.js": "/dev-jobs-app/static/js/main.00550f36.js",
     "static/media/ghost.png": "/dev-jobs-app/static/media/ghost.cbedbdd72a5c40e33a18.png",
     "static/media/pomodoro.svg": "/dev-jobs-app/static/media/pomodoro.1993bf9c0c6bca1546a8064694dda491.svg",
     "static/media/scoot.svg": "/dev-jobs-app/static/media/scoot.006560ce8e7c6f6cacdb927138bfe35c.svg",
@@ -11,18 +11,21 @@
     "static/media/coffeeroasters.svg": "/dev-jobs-app/static/media/coffeeroasters.bfd444926d4231b92cb80bf4fd7b44ca.svg",
     "static/media/typemaster.svg": "/dev-jobs-app/static/media/typemaster.af82b15477cfa7d1cb7c595c2a381579.svg",
     "static/media/maker.svg": "/dev-jobs-app/static/media/maker.b0e947696772b26352496bae9f31f405.svg",
+    "static/media/headerBgDesktop.svg": "/dev-jobs-app/static/media/headerBgDesktop.58ff50d946345187a65da27f800f7896.svg",
     "static/media/creative.svg": "/dev-jobs-app/static/media/creative.6ba8ed72e585384fc3c51582ffbbae03.svg",
     "static/media/mastercraft.svg": "/dev-jobs-app/static/media/mastercraft.9803ac26aee1bf7ea91910ca034c0576.svg",
+    "static/media/headerBgMobile.svg": "/dev-jobs-app/static/media/headerBgMobile.93ddc145c6c2c44def489abadb42a5f0.svg",
+    "static/media/headerBgTablet.svg": "/dev-jobs-app/static/media/headerBgTablet.8abfb0dca67d3dd0dda5c54bd796201f.svg",
     "static/media/blogr.svg": "/dev-jobs-app/static/media/blogr.c4d9ec097c4bac9474a3963f8945ed3d.svg",
     "static/media/moon.svg": "/dev-jobs-app/static/media/moon.3d5f121dddfbb7dc2cc4033e4e011fbd.svg",
     "index.html": "/dev-jobs-app/index.html",
     "static/media/officelite.svg": "/dev-jobs-app/static/media/officelite.5bb3e2ccfd5e7496e5cfa992a893a6c4.svg",
     "static/media/pod.svg": "/dev-jobs-app/static/media/pod.4f015167d51818a3df44129442bedb08.svg",
     "main.6489b770.css.map": "/dev-jobs-app/static/css/main.6489b770.css.map",
-    "main.cd546205.js.map": "/dev-jobs-app/static/js/main.cd546205.js.map"
+    "main.00550f36.js.map": "/dev-jobs-app/static/js/main.00550f36.js.map"
   },
   "entrypoints": [
     "static/css/main.6489b770.css",
-    "static/js/main.cd546205.js"
+    "static/js/main.00550f36.js"
   ]
 }
