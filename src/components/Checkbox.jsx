@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useTheme } from "../contexts/ThemeContext";
+import Checkmark from "../resources/checkMark.svg";
 
 const StyledCheckbox = styled.div`
 	width: 24px;
@@ -54,9 +55,7 @@ export default function Checkbox({ id, label, isSelected, onChange, style }) {
 		>
 			<input id={id} type="checkbox" checked={isSelected} onChange={onChange} />
 			<StyledCheckbox isActive={isSelected}>
-				{isSelected ? (
-					<img src="./resources/checkMark.svg" alt="Check Icon" />
-				) : null}
+				{isSelected ? <img src={Checkmark} alt="Check Icon" /> : null}
 			</StyledCheckbox>
 			{label && label}
 		</StyledLabel>
