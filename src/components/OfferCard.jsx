@@ -7,7 +7,7 @@ import {
 } from "./designSystem/Typography";
 import { Link } from "react-router-dom";
 import { up } from "styled-breakpoints";
-import logosMap from "../resources/logosMap";
+import imagesMap from "../resources/imagesMap";
 
 const Container = styled.div`
 	width: 327px;
@@ -58,7 +58,7 @@ export default function OfferCard({
 }) {
 	return (
 		<Link to={`/detail/${id}`} style={{ textDecoration: "none" }}>
-			<Container logoURL={logosMap[id].default}>
+			<Container logoURL={imagesMap[id]}>
 				<div className="logo" />
 				<div>
 					<StyledParagraph>

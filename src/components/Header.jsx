@@ -6,6 +6,7 @@ import { StyledHeading2 } from "./designSystem/Typography";
 import { darkTheme } from "../Theme";
 import { FaPaintBrush } from "react-icons/fa";
 import ToggleTheme from "./ToggleTheme";
+import imagesMap from "../resources/imagesMap";
 
 const StyledHeader = styled.div`
 	width: 100%;
@@ -16,7 +17,7 @@ const StyledHeader = styled.div`
 	flex-wrap: wrap;
 	align-items: flex-start;
 	justify-content: space-between;
-	background-image: url(/resources/headerBgMobile.svg);
+	background-image: url(${({ mobileBg }) => mobileBg});
 	background-size: cover;
 	position: relative;
 
@@ -24,13 +25,13 @@ const StyledHeader = styled.div`
 		height: 160px;
 		padding: 42px 40px;
 		border-bottom-left-radius: 100px;
-		background-image: url(/resources/headerBgTablet.svg);
+		background-image: url(${({ tabletBg }) => tabletBg});
 	}
 
 	${up("xl")} {
 		height: 162px;
 		padding: 45px 165px;
-		background-image: url(/resources/headerBgDesktop.svg);
+		background-image: url(${({ desktopBg }) => desktopBg});
 	}
 `;
 
@@ -53,7 +54,11 @@ export default function Header({ logo }) {
 	const location = useLocation();
 
 	return (
-		<StyledHeader>
+		<StyledHeader
+			mobileBg={imagesMap.headerBgMobile}
+			tabletBg={imagesMap.headerBgTablet}
+			desktopBg={imagesMap.headerBgDesktop}
+		>
 			<Container>
 				<StyledLogo to="/">{logo}</StyledLogo>
 				{location.pathname === "/design-system" ? null : (
