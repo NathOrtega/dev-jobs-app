@@ -1,9 +1,7 @@
 # devJobs App.
 
 ## 🛠 Built with:
-- HTML5
-- CSS3
-- React
+- Create React App
 
 ## 🚀 Features:
 
