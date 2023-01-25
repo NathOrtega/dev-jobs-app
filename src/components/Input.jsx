@@ -35,6 +35,7 @@ export default function Input({
 	style,
 	onChange,
 	value,
+	...rest
 }) {
 	const handleOnChange = (e) => {
 		onChange(e.target.value);
@@ -54,6 +55,7 @@ export default function Input({
 				placeholder={placeholder}
 				onChange={handleOnChange}
 				style={{ paddingLeft: Icon ? "16px" : "0" }}
+				{...rest}
 			/>
 		</StyledInput>
 	);

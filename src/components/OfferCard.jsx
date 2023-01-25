@@ -49,25 +49,21 @@ const Container = styled.div`
 `;
 
 export default function OfferCard({
-	postedAt,
-	contract,
-	position,
-	company,
-	location,
-	id,
+	offerInfo,
+	...rest
 }) {
 	return (
-		<Link to={`/detail/${id}`} style={{ textDecoration: "none" }}>
-			<Container logoURL={imagesMap[id]}>
+		<Link to={`/detail/${offerInfo.id}`} style={{ textDecoration: "none" }} {...rest}>
+			<Container logoURL={imagesMap[offerInfo.id]}>
 				<div className="logo" />
 				<div>
 					<StyledParagraph>
-						{postedAt} • {contract}
+						{offerInfo.postedAt} • {offerInfo.contract}
 					</StyledParagraph>
-					<StyledHeading3>{position}</StyledHeading3>
-					<StyledParagraph>{company}</StyledParagraph>
+					<StyledHeading3>{offerInfo.position}</StyledHeading3>
+					<StyledParagraph>{offerInfo.company}</StyledParagraph>
 				</div>
-				<StyledHeading4 color="var(--Primary)">{location}</StyledHeading4>
+				<StyledHeading4 color="var(--Primary)">{offerInfo.location}</StyledHeading4>
 			</Container>
 		</Link>
 	);

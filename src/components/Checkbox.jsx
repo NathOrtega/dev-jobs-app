@@ -43,7 +43,7 @@ const StyledLabel = styled.label`
 	}
 `;
 
-export default function Checkbox({ id, label, isSelected, onChange, style }) {
+export default function Checkbox({ id, label, isSelected, onChange, style, ...rest }) {
 	const { theme } = useTheme();
 
 	return (
@@ -53,8 +53,8 @@ export default function Checkbox({ id, label, isSelected, onChange, style }) {
 			htmlFor={id}
 			style={style}
 		>
-			<input id={id} type="checkbox" checked={isSelected} onChange={onChange} />
-			<StyledCheckbox isActive={isSelected}>
+			<input id={id} type="checkbox" checked={isSelected} onChange={onChange}/>
+			<StyledCheckbox isActive={isSelected} {...rest}>
 				{isSelected ? <img src={Checkmark} alt="Check Icon" /> : null}
 			</StyledCheckbox>
 			{label && label}

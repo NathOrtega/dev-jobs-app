@@ -187,7 +187,7 @@ export default function Detail() {
 						<Wrapper>
 							<StyledLogo logoURL={imagesMap[offer.id]} />
 							<div>
-								<StyledHeading3 style={{ marginBottom: "8px" }}>
+								<StyledHeading3 style={{ marginBottom: "8px" }} data-cy="company">
 									{offer.company}
 								</StyledHeading3>
 								<StyledParagraph>
@@ -217,13 +217,13 @@ export default function Detail() {
 										: { width: "100%", margin: "0" }
 								}
 							>
-								<StyledParagraph style={{ marginBottom: "8px" }}>
+								<StyledParagraph style={{ marginBottom: "8px" }} data-cy="dateAndContract">
 									{offer.postedAt} • {offer.contract}
 								</StyledParagraph>
-								<StyledHeading3 style={{ marginBottom: "8px" }}>
+								<StyledHeading3 style={{ marginBottom: "8px" }} data-cy="position">
 									{offer.position}
 								</StyledHeading3>
-								<StyledHeading4 color="var(--Primary)">
+								<StyledHeading4 color="var(--Primary)" data-cy="location">
 									{offer.location}
 								</StyledHeading4>
 							</div>

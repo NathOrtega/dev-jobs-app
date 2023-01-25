@@ -57,9 +57,10 @@ export default function Toggle({
 	rightImageStyle,
 	leftImageStyle,
 	isToggled,
+	...rest
 }) {
 	return (
-		<StyledToggle>
+		<StyledToggle {...rest}>
 			<img src={rightImageSrc} style={rightImageStyle} alt={rightImageAlt} />
 			<StyledSwitch>
 				<input type="checkbox" checked={isToggled} onChange={onClick} />

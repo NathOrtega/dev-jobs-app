@@ -21,6 +21,7 @@ export default function ToggleTheme() {
 			leftImageAlt="dark mode"
 			leftImageStyle={{ width: "14px", height: "14px" }}
 			isToggled={themeName === "dark"}
+			data-cy="toggleTheme"
 		/>
 	);
 }

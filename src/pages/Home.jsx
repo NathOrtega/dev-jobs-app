@@ -70,22 +70,22 @@ export default function Home() {
 						onSearch={(e) => setFilteredOffers(e)}
 					/>
 					{filteredOffers.length && !isLoading ? (
-						<StyledContainer>
+						<StyledContainer data-cy="offerCardsContainer">
 							{filteredOffers
 								.slice(0, visibleJobOffers)
 								.map((offerInfo, index) => {
-									return <OfferCard key={index} {...offerInfo} />;
+									return <OfferCard key={index} offerInfo={offerInfo} data-cy="offerCard" id={`offerInfo${offerInfo.id}`}/>;
 								})}
 							{visibleJobOffers < filteredOffers.length && (
 								<ButtonContainer>
-									<Button variant="primary" onClick={loadMoreJobOffers}>
+									<Button variant="primary" onClick={loadMoreJobOffers} data-cy="loadMore">
 										Load More
 									</Button>
 								</ButtonContainer>
 							)}
 						</StyledContainer>
 					) : (
-						<NoResultsContainer>
+						<NoResultsContainer data-cy="noResults">
 							<NoResultsAnimation />
 							<StyledHeading3>No matching results found</StyledHeading3>
 						</NoResultsContainer>

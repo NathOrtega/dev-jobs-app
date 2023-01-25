@@ -25,6 +25,7 @@ const StyledFilterBar = styled.form`
 	top: 95px;
 	left: 0;
 	right: 0;
+	z-index: 3;
 	background-color: ${({ theme }) => theme.input.backgroundColor};
 
 	${up("md")} {
@@ -152,6 +153,7 @@ export default function FiltersBar({ jobOffers, onSearch }) {
 				width={getResponsiveValue("60%", "30%", "35%")}
 				style={isMobile ? { padding: 0 } : inputStyles}
 				onChange={handleOnPositionInputChange}
+				data-cy="titleFilter"
 			/>
 			{!isMobile && (
 				<Input
@@ -164,6 +166,7 @@ export default function FiltersBar({ jobOffers, onSearch }) {
 					}
 					onChange={handleOnLocationInputChange}
 					value={location}
+					data-cy="locationFilter"
 				/>
 			)}
 			<StyledBox>
@@ -174,12 +177,13 @@ export default function FiltersBar({ jobOffers, onSearch }) {
 						isSelected={isFulltime}
 						onChange={handleOnFulltimeCheckboxChange}
 						style={{ marginRight: "20px" }}
+						data-cy="fulltimeFilter"
 					/>
 				)}
 				<StyledFilterButton onClick={handleOnClick}>
 					<FaFilter />
 				</StyledFilterButton>
-				<SearchButton variant="Primary" onClick={onSearchClick}>
+				<SearchButton variant="Primary" onClick={onSearchClick} data-cy="searchButton">
 					{isMobile ? <FaSearch style={{ fontSize: "20px" }} /> : "Search"}
 				</SearchButton>
 			</StyledBox>

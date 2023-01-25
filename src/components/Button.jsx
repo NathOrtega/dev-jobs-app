@@ -54,6 +54,7 @@ export default function Button({
 	onClick,
 	disabled = false,
 	className,
+	...rest
 }) {
 	const buttonVariant = variant.toLowerCase();
 
@@ -70,6 +71,7 @@ export default function Button({
 			onClick={handleOnClick}
 			disabled={disabled}
 			className={className}
+			{...rest}
 		>
 			{children}
 		</StyledButton>
